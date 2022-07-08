@@ -16,20 +16,31 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="ACM&#x2F;ICPC中的数学 一些数论基本定理 ( a + b ) mod c &#x3D; ((a mod c) + (b mod c)) mod c ( a * b ) mod c &#x3D; ((a mod c) * (b mod c)) mod c 消去律：若 gcd(c,p) &#x3D; 1,则(gcd表示同余数) ac ≡ bc mod p &#x3D;&gt; a ≡ b mod p 快速幂 算法一 12345678910">
+    <meta name="description" content="一、安装并注册MateMask钱包账户 1、安装MetaMask MetaMask属于浏览器插件应用，官网：The crypto wallet for Defi, Web3 Dapps and NFTs | MetaMask，进入后下载安装即可。 2、注册 接下来就是简单的注册过程，此处需要保存好自己的助记词。按照我的理解，助记词是为了让你在忘记MetaMask登录密码时能够找回自己的钱包。Met">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ACM 数论部分">
-<meta property="og:url" content="http://example.com/2022/03/06/ACM_%E6%95%B0%E8%AE%BA/index.html">
+<meta property="og:title" content="如何使用goblintownNFT智能合约发布属于自己的NFT">
+<meta property="og:url" content="http://example.com/2022/07/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="ACM&#x2F;ICPC中的数学 一些数论基本定理 ( a + b ) mod c &#x3D; ((a mod c) + (b mod c)) mod c ( a * b ) mod c &#x3D; ((a mod c) * (b mod c)) mod c 消去律：若 gcd(c,p) &#x3D; 1,则(gcd表示同余数) ac ≡ bc mod p &#x3D;&gt; a ≡ b mod p 快速幂 算法一 12345678910">
+<meta property="og:description" content="一、安装并注册MateMask钱包账户 1、安装MetaMask MetaMask属于浏览器插件应用，官网：The crypto wallet for Defi, Web3 Dapps and NFTs | MetaMask，进入后下载安装即可。 2、注册 接下来就是简单的注册过程，此处需要保存好自己的助记词。按照我的理解，助记词是为了让你在忘记MetaMask登录密码时能够找回自己的钱包。Met">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-03-05T16:54:40.815Z">
-<meta property="article:modified_time" content="2022-01-10T12:19:00.000Z">
+<meta property="og:image" content="http://example.com/2022/07/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT/1.png">
+<meta property="og:image" content="http://example.com/2022/07/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT/2.png">
+<meta property="og:image" content="http://example.com/2022/07/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT/3.png">
+<meta property="og:image" content="http://example.com/2022/07/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT/4.png">
+<meta property="og:image" content="http://example.com/2022/07/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT/5.png">
+<meta property="og:image" content="d:%5Cwzx%5CDocuments%5Cblog%5Csource_posts%5C%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT%5C6.png">
+<meta property="og:image" content="http://example.com/2022/07/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT/7.png">
+<meta property="og:image" content="http://example.com/2022/07/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT/10.png">
+<meta property="og:image" content="http://example.com/2022/07/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT/9.png">
+<meta property="og:image" content="http://example.com/2022/07/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT/8.png">
+<meta property="article:published_time" content="2022-07-08T14:35:29.166Z">
+<meta property="article:modified_time" content="2022-07-08T14:49:34.846Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/2022/07/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT/1.png">
   
   
-  <title>ACM 数论部分 - Hexo</title>
+  <title>如何使用goblintownNFT智能合约发布属于自己的NFT - Hexo</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -175,7 +186,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="ACM 数论部分">
+            <span class="h2" id="subtitle" title="如何使用goblintownNFT智能合约发布属于自己的NFT">
               
             </span>
 
@@ -185,8 +196,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-03-06 00:54" pubdate>
-        2022年3月6日 凌晨
+      <time datetime="2022-07-08 22:35" pubdate>
+        2022年7月8日 晚上
       </time>
     </span>
   
@@ -196,7 +207,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.2k 字
+      1.3k 字
     </span>
   
 
@@ -205,7 +216,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      10 分钟
+      11 分钟
     </span>
   
 
@@ -234,39 +245,39 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">ACM 数论部分</h1>
+            <h1 style="display: none">如何使用goblintownNFT智能合约发布属于自己的NFT</h1>
             
             <div class="markdown-body">
-              <p>ACM/ICPC中的数学</p>
-<h2 id="一些数论基本定理">一些数论基本定理</h2>
-<p>( a + b ) mod c = ((a mod c) + (b mod c)) mod c<br>
-( a * b ) mod c = ((a mod c) * (b mod c)) mod c</p>
-<p>消去律：若 gcd(c,p) = 1,则(gcd表示同余数)<br>
-ac ≡ bc mod p =&gt; a ≡ b mod p</p>
-<h3 id="快速幂">快速幂</h3>
-<p>算法一</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">Pow</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a,<span class="hljs-keyword">int</span> b)</span></span><br><span class="hljs-function"></span>&#123; <span class="hljs-comment">//快速求a^b ，复杂度 log(b) </span><br>    <span class="hljs-keyword">if</span>(b == <span class="hljs-number">0</span>)<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>; <br>    <span class="hljs-keyword">if</span>(b &amp; <span class="hljs-number">1</span>) &#123; <span class="hljs-comment">//b是奇数</span><br>        <span class="hljs-keyword">return</span> a * <span class="hljs-built_in">Pow</span>(a,b<span class="hljs-number">-1</span>);<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-keyword">int</span> t = <span class="hljs-built_in">Pow</span>(a,b/<span class="hljs-number">2</span>);<br>        <span class="hljs-keyword">return</span> t * t;<br>    &#125; <br>&#125;<br></code></pre></td></tr></table></figure>
-<p>算法二</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">Pow</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a,<span class="hljs-keyword">int</span> b)</span></span><br><span class="hljs-function"></span>&#123; <span class="hljs-comment">//快速求a^b ，复杂度 log(b) </span><br>    <span class="hljs-keyword">int</span> result = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">int</span> base = a;<br>    <span class="hljs-keyword">while</span>(b) &#123;<br>        <span class="hljs-keyword">if</span>( b &amp; <span class="hljs-number">1</span>) <br>            result *= base;<br>        base *= base;<br>        b &gt;&gt;= <span class="hljs-number">1</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> result;<br>&#125;<br></code></pre></td></tr></table></figure>
-<h3 id="快速幂取模">快速幂取模</h3>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">PowMod</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a,<span class="hljs-keyword">int</span> b,<span class="hljs-keyword">int</span> c)</span></span><br><span class="hljs-function"></span>&#123;<span class="hljs-comment">//快速求 a^b % c ，要避免计算中间结果溢出</span><br>    <span class="hljs-keyword">int</span> result = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">int</span> base = a%c;<br>    <span class="hljs-keyword">while</span>(b) &#123;<br>        <span class="hljs-keyword">if</span>( b &amp; <span class="hljs-number">1</span>) <br>            result = (result * base)%c;<br>        base = (base * base) % c;<br>        b &gt;&gt;= <span class="hljs-number">1</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> result;<br>&#125;<br></code></pre></td></tr></table></figure>
-<h3 id="等比数列二分求和取模">等比数列二分求和取模</h3>
-<p>Sn= a+a2+…+an<br>
-要求 Sn mod p<br>
-如果用公式算，可能溢出，因此用二分法求</p>
-<ol>
-<li>若 n 是偶数<br>
-Sn= a+…+an/2 + an/2+1 + an/2+2 +…+ an/2+n/2<br>
-=(a+…+an/2) + an/2(a+…+an/2)<br>
-=Sn/2+ an/2Sn/2<br>
-=(1+an/2)Sn/2</li>
-<li>若n是奇数<br>
-Sn= a+…+a(n-1)/2 + a(n-1)/2+1 +…+<br>
-   a(n-1)/2+(n-1)/2 + a(n-1)/2+(n-1)/2 + 1<br>
-=S(n-1)/2 + a(n-1)/2(a+…+a(n-1)/2)+an<br>
-=(1+a(n-1)/2)S(n-1)/2+an</li>
-</ol>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">PowSumMod</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a,<span class="hljs-keyword">int</span> n,<span class="hljs-keyword">int</span> p)</span></span><br><span class="hljs-function"></span>&#123;<span class="hljs-comment">// return (a+ a^2 + ... + a^n) Mod p;</span><br>    <span class="hljs-keyword">if</span>( n == <span class="hljs-number">1</span>)<br>        <span class="hljs-keyword">return</span> a%p;<br>    <span class="hljs-keyword">if</span>( n %<span class="hljs-number">2</span> == <span class="hljs-number">0</span>) <br>        <span class="hljs-keyword">return</span> (<span class="hljs-number">1</span>+<span class="hljs-built_in">PowMod</span>(a,n/<span class="hljs-number">2</span>,p))*<span class="hljs-built_in">PowSumMod</span>(a,n/<span class="hljs-number">2</span>,p) % p;<br>    <span class="hljs-keyword">else</span> <br>        <span class="hljs-built_in"><span class="hljs-keyword">return</span></span> ((<span class="hljs-number">1</span>+<span class="hljs-built_in">PowMod</span>(a,(n<span class="hljs-number">-1</span>)/<span class="hljs-number">2</span>,p)) * <span class="hljs-built_in">PowSumMod</span>(a,(n<span class="hljs-number">-1</span>)/<span class="hljs-number">2</span>,p) + <span class="hljs-built_in">PowMod</span>(a,n,p)) % p;<br>&#125;<br></code></pre></td></tr></table></figure>
+              <h3 id="一、安装并注册MateMask钱包账户">一、安装并注册MateMask钱包账户</h3>
+<p>1、安装MetaMask</p>
+<p>MetaMask属于浏览器插件应用，官网：<a target="_blank" rel="noopener" href="https://metamask.io/">The crypto wallet for Defi, Web3 Dapps and NFTs | MetaMask</a>，进入后下载安装即可。</p>
+<p>2、注册</p>
+<p>接下来就是简单的注册过程，此处需要保存好自己的助记词。按照我的理解，助记词是为了让你在忘记MetaMask登录密码时能够找回自己的钱包。MetaMask钱包能够注册多个账户。</p>
+<h3 id="二、切换至Rinkeby测试网络">二、切换至Rinkeby测试网络</h3>
+<p>此处参考我的另一篇博客《Rinkeby以太坊测试网络部署》</p>
+<h3 id="三、goblintownNFT合约的部署">三、goblintownNFT合约的部署</h3>
+<p>1、进入<a target="_blank" rel="noopener" href="https://etherscan.io/address/0xbce3781ae7ca1a5e050bd9c4c77369867ebc307e#code">goblintown</a>将该项目的智能合约copy到在线solidity编辑网站<a target="_blank" rel="noopener" href="https://remix.ethereum.org/">Remix</a></p>
+<img src="/2022/07/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT/1.png" srcset="/img/loading.gif" lazyload class="">
+<p>2、编译并部署到以太坊测试网络Rinkeby中</p>
+<img src="/2022/07/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT/2.png" srcset="/img/loading.gif" lazyload class="">
+<p>最左侧红框中没有出现红色就说明智能合约语法不存在错误。</p>
+<img src="/2022/07/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT/3.png" srcset="/img/loading.gif" lazyload class="">
+<p>不出意外的话，到这里合约就已经部署完成了。5号红框那里有合约在以太坊上的地址，我们可以到Etherscan中查看这个地址，包括后续的一些合约操作，交易记录等都会在上面显示。同时，我们可以看到合约中的函数，如下图所示：</p>
+<img src="/2022/07/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT/4.png" srcset="/img/loading.gif" lazyload class="">
+<h3 id="四、将我们的NFT-Meta-json文件放置到IPFS上">四、将我们的NFT Meta_json文件放置到IPFS上</h3>
+<p>IPFS我使用的是 <a target="_blank" rel="noopener" href="https://app.pinata.cloud/">Pinata</a> ，它好像有一个免费的1G存储容量。不过也可以自己搭建IPFS服务器，具体可参考我的另一篇博客《如何在Linux上部署IPFS》。NFT的JSON格式如下：</p>
+<img src="/2022/07/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT/5.png" srcset="/img/loading.gif" lazyload class="">
+<p>我们自己NFT的JSON文件放在一个文件夹里上传到IPFS服务器上，注意JSON文件的==文件名==和==后缀==。例如：</p>
+<p><img src="D:%5Cwzx%5CDocuments%5Cblog%5Csource_posts%5C%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT%5C6.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p>上传完成后会显示下面界面，我们最终需要的就是该文件的==CID==。</p>
+<img src="/2022/07/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT/7.png" srcset="/img/loading.gif" lazyload class="">
+<h3 id="五、mint-NFT">五、mint NFT</h3>
+<img src="/2022/07/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT/10.png" srcset="/img/loading.gif" lazyload class="">
+<p>按照顺序依次执行以上步骤，我们就可以得到我们自己的NFT啦~</p>
+<img src="/2022/07/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT/9.png" srcset="/img/loading.gif" lazyload class="">
+<p>首先，我在这里解释一下tokenid，我的理解是tokenid = num(NFT) - 1，例如你已经有10个NFT，那么tokenid = 9。在刚开始部署智能合约的时候 tokenid = 0，每次mint NFT的时候，会执行智能合约中的totalSupply函数来获得当前num(NFT)。</p>
+<p>opensea通过获取ipfs://CID/==string==文件来展示NFT（例如，ipfs://QmfPoHvSMMJ8V5XtWGSbWUqAMy6vkNyH7P8aw3uc2134gY/0，当然这个ipfs也可以通过浏览器来展示，<a target="_blank" rel="noopener" href="http://ipfs.io/ipfs/QmfPoHvSMMJ8V5XtWGSbWUqAMy6vkNyH7P8aw3uc2134gY/0%EF%BC%8C%E5%9B%A0%E4%B8%BA%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%9C%A8%E5%9B%BD%E5%A4%96%EF%BC%8Cipfs.io%E8%BF%99%E4%B8%AA%E5%9F%9F%E5%90%8D%E5%8F%AF%E8%83%BD%E4%BC%9A%E8%AE%BF%E9%97%AE%E4%B8%8D%E5%88%B0%EF%BC%8C%E8%BF%99%E6%97%B6%E6%88%91%E4%BB%AC%E9%80%89%E6%8B%A9%E5%8F%AF%E7%94%A8%E7%9A%84%5BIPFS%E5%85%AC%E5%85%B1%E7%BD%91%E5%85%B3%5D">http://ipfs.io/ipfs/QmfPoHvSMMJ8V5XtWGSbWUqAMy6vkNyH7P8aw3uc2134gY/0，因为服务器在国外，ipfs.io这个域名可能会访问不到，这时我们选择可用的[IPFS公共网关]</a>(<a target="_blank" rel="noopener" href="https://ipfs.github.io/public-gateway-checker/">Public Gateway Checker | IPFS</a>)<a target="_blank" rel="noopener" href="http://xn--ipfs-z55f209jmua.io">来代替ipfs.io</a>），在该智能合约中tokenid = 地址中的string，这样就是为什么我们需要把JSON文件的后缀去除掉。上面图片中名称是3的NFT是空图，是因为该图片在IPFS服务器中的文件格式为3.json，这时候代码opensea是识别不出来的，具体原因如下图源码可知。</p>
+<img src="/2022/07/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT/8.png" srcset="/img/loading.gif" lazyload class="">
 
             </div>
             <hr>
@@ -287,9 +298,9 @@ Sn= a+…+a(n-1)/2 + a(n-1)/2+1 +…+<br>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/">
+                      <a href="/2022/07/08/%E5%A6%82%E4%BD%95%E5%9C%A8Linux%E4%B8%8A%E9%83%A8%E7%BD%B2IPFS/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">区块链溯源系统环境部署</span>
+                        <span class="hidden-mobile">如何在Linux云服务器上部署IPFS</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -297,8 +308,8 @@ Sn= a+…+a(n-1)/2 + a(n-1)/2+1 +…+<br>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/01/11/Hyperldeger-Fabric%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">
-                        <span class="hidden-mobile">Hyperldeger Fabric环境搭建</span>
+                      <a href="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/">
+                        <span class="hidden-mobile">区块链溯源系统环境部署</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
