@@ -34,7 +34,7 @@
 <meta property="og:image" content="http://example.com/2022/07/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT/9.png">
 <meta property="og:image" content="http://example.com/2022/07/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT/8.png">
 <meta property="article:published_time" content="2022-07-08T14:35:29.166Z">
-<meta property="article:modified_time" content="2022-07-08T14:49:34.846Z">
+<meta property="article:modified_time" content="2022-07-10T08:28:08.797Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://example.com/2022/07/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT/1.png">
@@ -276,7 +276,7 @@
 <p>按照顺序依次执行以上步骤，我们就可以得到我们自己的NFT啦~</p>
 <img src="/2022/07/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT/9.png" srcset="/img/loading.gif" lazyload class="">
 <p>首先，我在这里解释一下tokenid，我的理解是tokenid = num(NFT) - 1，例如你已经有10个NFT，那么tokenid = 9。在刚开始部署智能合约的时候 tokenid = 0，每次mint NFT的时候，会执行智能合约中的totalSupply函数来获得当前num(NFT)。</p>
-<p>opensea通过获取ipfs://CID/==string==文件来展示NFT（例如，ipfs://QmfPoHvSMMJ8V5XtWGSbWUqAMy6vkNyH7P8aw3uc2134gY/0，当然这个ipfs也可以通过浏览器来展示，<a target="_blank" rel="noopener" href="http://ipfs.io/ipfs/QmfPoHvSMMJ8V5XtWGSbWUqAMy6vkNyH7P8aw3uc2134gY/0%EF%BC%8C%E5%9B%A0%E4%B8%BA%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%9C%A8%E5%9B%BD%E5%A4%96%EF%BC%8Cipfs.io%E8%BF%99%E4%B8%AA%E5%9F%9F%E5%90%8D%E5%8F%AF%E8%83%BD%E4%BC%9A%E8%AE%BF%E9%97%AE%E4%B8%8D%E5%88%B0%EF%BC%8C%E8%BF%99%E6%97%B6%E6%88%91%E4%BB%AC%E9%80%89%E6%8B%A9%E5%8F%AF%E7%94%A8%E7%9A%84%5BIPFS%E5%85%AC%E5%85%B1%E7%BD%91%E5%85%B3%5D">http://ipfs.io/ipfs/QmfPoHvSMMJ8V5XtWGSbWUqAMy6vkNyH7P8aw3uc2134gY/0，因为服务器在国外，ipfs.io这个域名可能会访问不到，这时我们选择可用的[IPFS公共网关]</a>(<a target="_blank" rel="noopener" href="https://ipfs.github.io/public-gateway-checker/">Public Gateway Checker | IPFS</a>)<a target="_blank" rel="noopener" href="http://xn--ipfs-z55f209jmua.io">来代替ipfs.io</a>），在该智能合约中tokenid = 地址中的string，这样就是为什么我们需要把JSON文件的后缀去除掉。上面图片中名称是3的NFT是空图，是因为该图片在IPFS服务器中的文件格式为3.json，这时候代码opensea是识别不出来的，具体原因如下图源码可知。</p>
+<p>opensea通过获取ipfs://CID/==string==文件来展示NFT（例如，ipfs://QmfPoHvSMMJ8V5XtWGSbWUqAMy6vkNyH7P8aw3uc2134gY/0，当然这个ipfs也可以通过浏览器来展示，<a target="_blank" rel="noopener" href="http://ipfs.io/ipfs/QmfPoHvSMMJ8V5XtWGSbWUqAMy6vkNyH7P8aw3uc2134gY/0">http://ipfs.io/ipfs/QmfPoHvSMMJ8V5XtWGSbWUqAMy6vkNyH7P8aw3uc2134gY/0</a>  ，因为服务器在国外，ipfs.io这个域名可能会访问不到，这时我们选择可用的[IPFS公共网关](<a target="_blank" rel="noopener" href="https://ipfs.github.io/public-gateway-checker/">Public Gateway Checker | IPFS</a>)<a target="_blank" rel="noopener" href="http://xn--ipfs-z55f209jmua.io">来代替ipfs.io</a>），在该智能合约中tokenid = 地址中的string，这样就是为什么我们需要把JSON文件的后缀去除掉。上面图片中名称是3的NFT是空图，是因为该图片在IPFS服务器中的文件格式为3.json，这时候代码opensea是识别不出来的，具体原因如下图源码可知。</p>
 <img src="/2022/07/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT/8.png" srcset="/img/loading.gif" lazyload class="">
 
             </div>

@@ -16,28 +16,31 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="一、准备必须的环境 配置GoLang环境 下载GoLang二进制文件 1234cd &#x2F;home&#x2F;&#x2F; 建议自己去GitHub上找一下最新版的链接wget https:&#x2F;&#x2F;go.dev&#x2F;dl&#x2F;go1.18.3.linux-amd64.tar.gztar -zxvf go1.18.3.linux-amd64.tar.gz -C &#x2F;usr&#x2F;local 配置GoLang环境 123456789vim &#x2F;et">
+    <meta name="description" content="出于学习和测试的目的，以太坊官方推出了一些测试网络，使用了与主网络不同的创世区块，测试网中的代币是没有价值的。以太坊公开的测试网络共有4个，目前仍在运行的有4个，分别为Goerli、Ropsten、Kovan、Rinkeby。  一、Rinkeby ​	Rinkeby 是开发人员目前常用的测试网络，使用PoA共识机制，访问地址: https:&#x2F;&#x2F;www.rinkeby.io&#x2F; ​	本文从以下几方面">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何在Linux云服务器上部署IPFS">
-<meta property="og:url" content="http://example.com/2022/07/08/%E5%A6%82%E4%BD%95%E5%9C%A8Linux%E4%B8%8A%E9%83%A8%E7%BD%B2IPFS/index.html">
+<meta property="og:title" content="以太坊测试网络Rinkeby使用教程">
+<meta property="og:url" content="http://example.com/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="一、准备必须的环境 配置GoLang环境 下载GoLang二进制文件 1234cd &#x2F;home&#x2F;&#x2F; 建议自己去GitHub上找一下最新版的链接wget https:&#x2F;&#x2F;go.dev&#x2F;dl&#x2F;go1.18.3.linux-amd64.tar.gztar -zxvf go1.18.3.linux-amd64.tar.gz -C &#x2F;usr&#x2F;local 配置GoLang环境 123456789vim &#x2F;et">
+<meta property="og:description" content="出于学习和测试的目的，以太坊官方推出了一些测试网络，使用了与主网络不同的创世区块，测试网中的代币是没有价值的。以太坊公开的测试网络共有4个，目前仍在运行的有4个，分别为Goerli、Ropsten、Kovan、Rinkeby。  一、Rinkeby ​	Rinkeby 是开发人员目前常用的测试网络，使用PoA共识机制，访问地址: https:&#x2F;&#x2F;www.rinkeby.io&#x2F; ​	本文从以下几方面">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2022/07/08/%E5%A6%82%E4%BD%95%E5%9C%A8Linux%E4%B8%8A%E9%83%A8%E7%BD%B2IPFS/ipfs_init.png">
-<meta property="og:image" content="http://example.com/2022/07/08/%E5%A6%82%E4%BD%95%E5%9C%A8Linux%E4%B8%8A%E9%83%A8%E7%BD%B2IPFS/ipfs_id.png">
-<meta property="og:image" content="http://example.com/2022/07/08/%E5%A6%82%E4%BD%95%E5%9C%A8Linux%E4%B8%8A%E9%83%A8%E7%BD%B2IPFS/ipfs_files.png">
-<meta property="og:image" content="http://example.com/2022/07/08/%E5%A6%82%E4%BD%95%E5%9C%A8Linux%E4%B8%8A%E9%83%A8%E7%BD%B2IPFS/ipfs_viconfig.png">
-<meta property="og:image" content="http://example.com/2022/07/08/%E5%A6%82%E4%BD%95%E5%9C%A8Linux%E4%B8%8A%E9%83%A8%E7%BD%B2IPFS/ipfs_daemon.png">
-<meta property="og:image" content="http://example.com/2022/07/08/%E5%A6%82%E4%BD%95%E5%9C%A8Linux%E4%B8%8A%E9%83%A8%E7%BD%B2IPFS/ipfs_success.png">
-<meta property="og:image" content="http://example.com/2022/07/08/%E5%A6%82%E4%BD%95%E5%9C%A8Linux%E4%B8%8A%E9%83%A8%E7%BD%B2IPFS/ipfs_webui1.png">
-<meta property="article:published_time" content="2022-07-08T14:52:25.000Z">
-<meta property="article:modified_time" content="2022-07-08T14:56:22.196Z">
+<meta property="og:image" content="http://example.com/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20220710154934533.png">
+<meta property="og:image" content="http://example.com/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20220710155752391.png">
+<meta property="og:image" content="http://example.com/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20220710160112111.png">
+<meta property="og:image" content="http://example.com/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20220710160258929.png">
+<meta property="og:image" content="http://example.com/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20220710160356133.png">
+<meta property="og:image" content="http://example.com/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20220619213140683.png">
+<meta property="og:image" content="http://example.com/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20220619213306397.png">
+<meta property="og:image" content="http://example.com/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20220710162030797.png">
+<meta property="og:image" content="http://example.com/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20220710162051195.png">
+<meta property="og:image" content="http://example.com/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20220710162152235.png">
+<meta property="article:published_time" content="2022-07-10T08:23:22.000Z">
+<meta property="article:modified_time" content="2022-07-10T08:26:42.664Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/2022/07/08/%E5%A6%82%E4%BD%95%E5%9C%A8Linux%E4%B8%8A%E9%83%A8%E7%BD%B2IPFS/ipfs_init.png">
+<meta name="twitter:image" content="http://example.com/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20220710154934533.png">
   
   
-  <title>如何在Linux云服务器上部署IPFS - Hexo</title>
+  <title>以太坊测试网络Rinkeby使用教程 - Hexo</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -183,7 +186,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="如何在Linux云服务器上部署IPFS">
+            <span class="h2" id="subtitle" title="以太坊测试网络Rinkeby使用教程">
               
             </span>
 
@@ -193,8 +196,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-07-08 22:52" pubdate>
-        2022年7月8日 晚上
+      <time datetime="2022-07-10 16:23" pubdate>
+        2022年7月10日 下午
       </time>
     </span>
   
@@ -204,7 +207,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.2k 字
+      1.3k 字
     </span>
   
 
@@ -242,48 +245,51 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">如何在Linux云服务器上部署IPFS</h1>
+            <h1 style="display: none">以太坊测试网络Rinkeby使用教程</h1>
             
             <div class="markdown-body">
-              <h3 id="一、准备必须的环境">一、准备必须的环境</h3>
-<h4 id="配置GoLang环境">配置GoLang环境</h4>
-<p>下载GoLang二进制文件</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">cd</span> /home<br>// 建议自己去GitHub上找一下最新版的链接<br>wget https://go.dev/dl/go1.18.3.linux-amd64.tar.gz<br>tar -zxvf go1.18.3.linux-amd64.tar.gz -C /usr/<span class="hljs-built_in">local</span><br></code></pre></td></tr></table></figure>
-<p>配置GoLang环境</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs sh">vim /etc/profile<br><br><span class="hljs-comment">#文件末尾追加（类似于配置java环境）</span><br><span class="hljs-comment"># golang env</span><br><span class="hljs-built_in">export</span> GOROOT=/usr/<span class="hljs-built_in">local</span>/go<br><span class="hljs-built_in">export</span> GOPATH=/data/gopath<br><span class="hljs-built_in">export</span> PATH=<span class="hljs-variable">$PATH</span>:<span class="hljs-variable">$GOROOT</span>/bin:<span class="hljs-variable">$GOPATH</span>/bin<br><br><span class="hljs-built_in">source</span> /etc/profile<br></code></pre></td></tr></table></figure>
-<h3 id="二、IPFS部署">二、IPFS部署</h3>
-<p>下载go-ipfs二进制文件，解压后运行install.sh脚本。（因为服务器在国外，所以可能wget失败go-ipfs二进制文件，建议直接去GitHub下载后上传到服务器，GoLang二进制文件同理）</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sh">wget https://dist.ipfs.io/go-ipfs/v0.13.0/go-ipfs_v0.13.0_linux-amd64.tar.gz<br>tar -xvzf go-ipfs_v0.13.0_linux-amd64.tar.gz<br><span class="hljs-built_in">cd</span> go-ipfs<br>sudo bash install.sh<br></code></pre></td></tr></table></figure>
-<p>测试是否安装成功：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">ipfs --version<br><span class="hljs-comment"># 成功的话会显示ipfs版本号</span><br>&gt; ipfs version 0.13.0<br></code></pre></td></tr></table></figure>
-<p>如果需要指定ipfs的存储位置，则修改下面bash</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">export</span> IPFS_PATH=<span class="hljs-string">&quot;/root/.ipfs/&quot;</span>   <span class="hljs-comment">#这里的路径是样例，可以修改为自己的路径 </span><br></code></pre></td></tr></table></figure>
-<p>IPFS初始化</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">ipfs init<br>ipfs cat /ipfs/QmQPeNsJPyVWPFDVHb77w8G42Fvo15z4bG2X8D2GhfbSXc/readme  <span class="hljs-comment">#根据init而来</span><br>ipfs id<br></code></pre></td></tr></table></figure>
-<img src="/2022/07/08/%E5%A6%82%E4%BD%95%E5%9C%A8Linux%E4%B8%8A%E9%83%A8%E7%BD%B2IPFS/ipfs_init.png" srcset="/img/loading.gif" lazyload class="">
-<img src="/2022/07/08/%E5%A6%82%E4%BD%95%E5%9C%A8Linux%E4%B8%8A%E9%83%A8%E7%BD%B2IPFS/ipfs_id.png" srcset="/img/loading.gif" lazyload class="">
-<p>ipfs文件夹存放在/root/下面（通过ipfs init可得），路径可根据当前ubuntu 用户而定，此处我用的root权限。文件如下：</p>
-<img src="/2022/07/08/%E5%A6%82%E4%BD%95%E5%9C%A8Linux%E4%B8%8A%E9%83%A8%E7%BD%B2IPFS/ipfs_files.png" srcset="/img/loading.gif" lazyload class="">
+              <p>出于学习和测试的目的，以太坊官方推出了一些测试网络，使用了与主网络不同的创世区块，测试网中的代币是没有价值的。以太坊公开的测试网络共有4个，目前仍在运行的有4个，分别为Goerli、Ropsten、Kovan、Rinkeby。</p>
+<img src="/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20220710154934533.png" srcset="/img/loading.gif" lazyload class="">
+<h3 id="一、Rinkeby">一、Rinkeby</h3>
+<p>​	Rinkeby 是开发人员目前常用的测试网络，使用PoA共识机制，访问地址: <a target="_blank" rel="noopener" href="https://link.jianshu.com/?t=https%3A%2F%2Fwww.rinkeby.io%2F">https://www.rinkeby.io/</a><br>
+​	本文从以下几方面介绍Rinkeby 的基本使用方法：</p>
 <ul>
-<li>blocks:文件块内容</li>
-<li>conifg:配置文件</li>
-<li>datastore_spec:存储本地数据</li>
-<li>keystore:存储公私钥对</li>
-<li>version:版本信息</li>
+<li>创建 Rinkeby 账户</li>
+<li>获取 Rinkeby 的以太币</li>
+<li>智能合约部署</li>
+<li>智能合约交互</li>
 </ul>
-<h3 id="三、修改配置文件config">三、修改配置文件config</h3>
-<p>把配置文件中的Address下的API 和 Gatway 的IP地址改为自己的本地地址，如果是部署在虚拟机中想通过本机访问的话全改为0.0.0.0。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">vi config<br></code></pre></td></tr></table></figure>
-<img src="/2022/07/08/%E5%A6%82%E4%BD%95%E5%9C%A8Linux%E4%B8%8A%E9%83%A8%E7%BD%B2IPFS/ipfs_viconfig.png" srcset="/img/loading.gif" lazyload class="">
-<h3 id="四、开启节点">四、开启节点</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ipfs daemon<br></code></pre></td></tr></table></figure>
-<img src="/2022/07/08/%E5%A6%82%E4%BD%95%E5%9C%A8Linux%E4%B8%8A%E9%83%A8%E7%BD%B2IPFS/ipfs_daemon.png" srcset="/img/loading.gif" lazyload class="">
-<p>在浏览器中输入图中的WebUI:<a target="_blank" rel="noopener" href="http://xn--IP-fr5c86lx7z:5001/webui,%E5%B0%B1%E4%BC%9A%E5%BC%B9%E5%87%BA%EF%BC%9A">http://服务器IP:5001/webui,就会弹出：</a></p>
-<img src="/2022/07/08/%E5%A6%82%E4%BD%95%E5%9C%A8Linux%E4%B8%8A%E9%83%A8%E7%BD%B2IPFS/ipfs_success.png" srcset="/img/loading.gif" lazyload class="">
-<p>以上就是完整的部署过程~</p>
-<p>如果你是部署在云服务上的话，这时你会出下下面错误：</p>
-<img src="/2022/07/08/%E5%A6%82%E4%BD%95%E5%9C%A8Linux%E4%B8%8A%E9%83%A8%E7%BD%B2IPFS/ipfs_webui1.png" srcset="/img/loading.gif" lazyload class="">
-<p>这里出现问题是因为默认配置没有解决路由跨域问题，只需要运行下面的两条bash再刷新就成功了！</p>
+<h3 id="二、创建-Rinkeby-账户">二、创建 Rinkeby 账户</h3>
+<p>​	首先我们需要一个钱包来管理账户，目前可选的有MetaMask、Coinbase Wallet、WalletConnect等，我比较推荐使用主流的MetaMask钱包。本篇文章的所有操作均通过MetaMask进行操作。</p>
+<p>​	1、安装MetaMask</p>
+<p>​	MetaMask属于浏览器插件应用，官网：<a target="_blank" rel="noopener" href="https://metamask.io/">The crypto wallet for Defi, Web3 Dapps and NFTs | MetaMask</a>，进入后下载安装即可。</p>
+<p>​	2、注册</p>
+<p>​	接下来就是简单的注册过程，此处需要保存好自己的助记词。按照我的理解，助记词是为了让你在忘记MetaMask登录密码时能够找回自己的钱包。MetaMask钱包能够注册多个账户。</p>
+<p>​	3、切换至Rinkeby测试网络环境</p>
+<p>​	<img src="/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20220710155752391.png" srcset="/img/loading.gif" lazyload class=""></p>
+<h3 id="三、获取Rinkeby-的以太币">三、获取Rinkeby 的以太币</h3>
+<p>​	刚注册的账户是没有以太币的，想获取Rinkeby测试网络中的以太币，需要我们通过官方给出的方法去申请，这个申请Rinkeby以太币的功能被称为水龙头(Faucet)。网站地址：<a target="_blank" rel="noopener" href="https://www.rinkeby.io/#faucet">https://www.rinkeby.io/#faucet</a> （有时候水龙头服务节点会问题，无法申请到测试币，我们可以自行百度其他申请方式）</p>
+<p>​	为了确保不会出现有人滥用水龙头，无限申请Rinkeby以太币。水龙头需要借助第三方账号来确定申请者的身份和配额。目前提供的获取方法是在Twitter、FaceBook任意一个社交网络上发布一条带有钱包地址的消息，并将消息的网址粘贴到上面截图的输入框中选个获取就可以。我们以FaceBook账户为例（额，我的Twitter不知道什么原因被冻结了，无法发布帖子）。</p>
+<img src="/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20220710160112111.png" srcset="/img/loading.gif" lazyload class="">
+<p>​	自行注册一个twitter或facebook账号即可，然后发一条帖子。</p>
+<img src="/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20220710160258929.png" srcset="/img/loading.gif" lazyload class="">
+<p>发布的内容就是钱包地址，获取方式如下图所示。</p>
+<img src="/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20220710160356133.png" srcset="/img/loading.gif" lazyload class="">
+<p>​	发送成功后，进入这条Tweet内容，然后copy以下当前推文的地址。</p>
+<img src="/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20220619213140683.png" srcset="/img/loading.gif" lazyload class="">
+<p>​	将刚才复制的地址粘贴到Rinkeby Authenticated Faucet的URL输入框中，随意选择一个测试币的有效时间即可。</p>
+<img src="/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20220619213306397.png" srcset="/img/loading.gif" lazyload class="">
+<p>​	稍等片刻，MetaMask上就会显示我们当前账户的余额。</p>
+<h3 id="四、智能合约部署">四、智能合约部署</h3>
+<p>​	如果使用的是MetaMask的话，你必须要有智能合约的源码，不然没有办法部署成功。如果向通过ABI和Bytecode部署的话可以使用Myetherwallet钱包。</p>
+<p>​	1、编译智能合约</p>
+<p>​	<img src="/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20220710162030797.png" srcset="/img/loading.gif" lazyload class=""></p>
+<p>​	2、部署智能合约</p>
+<p>​	<img src="/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20220710162051195.png" srcset="/img/loading.gif" lazyload class=""></p>
+<h3 id="六、智能合约交互">六、智能合约交互</h3>
+<p>​	当智能合约部署成功后，我们会在上图5号红框那里看到智能合约中开放的所有API，如下图所示：</p>
+<img src="/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20220710162152235.png" srcset="/img/loading.gif" lazyload class="">
+<p>​	我们根据函数功能，将参数填入输入框后点击左侧函数名称即可实现智能合约交互。</p>
 
             </div>
             <hr>
@@ -304,18 +310,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">以太坊测试网络Rinkeby使用教程</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/07/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT/">
-                        <span class="hidden-mobile">如何使用goblintownNFT智能合约发布属于自己的NFT</span>
+                      <a href="/2022/07/08/%E5%A6%82%E4%BD%95%E5%9C%A8Linux%E4%B8%8A%E9%83%A8%E7%BD%B2IPFS/">
+                        <span class="hidden-mobile">如何在Linux云服务器上部署IPFS</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
