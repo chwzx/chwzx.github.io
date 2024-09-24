@@ -2861,8 +2861,6 @@ input::placeholder {
   background: var(--anzhiyu-background);
   background-attachment: local;
   background-position: center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -3964,8 +3962,6 @@ body[data-type='about'] #web_bg {
   background: -o-linear-gradient(330deg, #5b27ff 0, #00d4ff 100%);
   background: -ms-linear-gradient(330deg, #5b27ff 0, #00d4ff 100%);
   background: linear-gradient(120deg, #5b27ff 0, #00d4ff 100%);
-  -webkit-background-size: 200%;
-  -moz-background-size: 200%;
   background-size: 200%;
   -webkit-animation: gradient 15s ease infinite;
   -moz-animation: gradient 15s ease infinite;
@@ -4057,8 +4053,6 @@ body[data-type='about'] #web_bg {
   position: absolute;
   top: 36px;
   padding-bottom: var(--offset);
-  -webkit-background-size: 100% 100%;
-  -moz-background-size: 100% 100%;
   background-size: 100% 100%;
   -webkit-background-clip: text;
   -webkit-background-clip: text;
@@ -4125,8 +4119,6 @@ body[data-type='about'] #web_bg {
 #about-page .about-statistic {
   min-height: 380px;
   width: 39%;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
   background-size: cover;
   color: var(--anzhiyu-white);
   overflow: hidden;
@@ -4441,8 +4433,6 @@ body[data-type='about'] #web_bg {
   -o-transition: 1s ease-in-out;
   -ms-transition: 1s ease-in-out;
   transition: 1s ease-in-out;
-  -webkit-background-size: 100%;
-  -moz-background-size: 100%;
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: center;
@@ -4538,8 +4528,6 @@ body[data-type='about'] #web_bg {
   width: 59%;
 }
 .author-content-item.map:hover {
-  -webkit-background-size: 120%;
-  -moz-background-size: 120%;
   background-size: 120%;
   -webkit-transition: 4s ease-in-out;
   -moz-transition: 4s ease-in-out;
@@ -4667,8 +4655,6 @@ body[data-type='about'] #web_bg {
   background: -ms-linear-gradient(330deg, #ff27e8 0, #ff8000 100%);
   background: linear-gradient(120deg, #ff27e8 0, #ff8000 100%);
   color: var(--anzhiyu-white);
-  -webkit-background-size: 200%;
-  -moz-background-size: 200%;
   background-size: 200%;
   -webkit-animation: gradient 15s ease infinite;
   -moz-animation: gradient 15s ease infinite;
@@ -4736,8 +4722,6 @@ body[data-type='about'] #web_bg {
   font-size: 12rem;
 }
 .author-content-item.game-yuanshen {
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
   background-size: cover;
   min-height: 300px;
   overflow: hidden;
@@ -5224,8 +5208,6 @@ body[data-type='about'] #web_bg {
 }
 .author-content-item.careers {
   min-height: 400px;
-  -webkit-background-size: contain;
-  -moz-background-size: contain;
   background-size: contain;
   background-repeat: no-repeat;
   background-position-x: right;
@@ -5348,8 +5330,6 @@ body[data-type='about'] #web_bg {
   width: 500px;
   height: 62.5px;
   background: url("https://yuanshen.site/imgs/loading-bar.png") no-repeat left 100%;
-  -webkit-background-size: 500px 62.5px;
-  -moz-background-size: 500px 62.5px;
   background-size: 500px 62.5px;
   background-position-x: 0;
 }
@@ -5533,8 +5513,6 @@ body[data-type='about'] #web_bg {
 @-moz-keyframes loading-bar {
   0% {
     width: 0;
-    -webkit-background-size: 500px 62.5px;
-    -moz-background-size: 500px 62.5px;
     background-size: 500px 62.5px;
   }
   83% {
@@ -5586,8 +5564,6 @@ body[data-type='about'] #web_bg {
 @-webkit-keyframes loading-bar {
   0% {
     width: 0;
-    -webkit-background-size: 500px 62.5px;
-    -moz-background-size: 500px 62.5px;
     background-size: 500px 62.5px;
   }
   83% {
@@ -5639,8 +5615,6 @@ body[data-type='about'] #web_bg {
 @-o-keyframes loading-bar {
   0% {
     width: 0;
-    -webkit-background-size: 500px 62.5px;
-    -moz-background-size: 500px 62.5px;
     background-size: 500px 62.5px;
   }
   83% {
@@ -5692,8 +5666,6 @@ body[data-type='about'] #web_bg {
 @keyframes loading-bar {
   0% {
     width: 0;
-    -webkit-background-size: 500px 62.5px;
-    -moz-background-size: 500px 62.5px;
     background-size: 500px 62.5px;
   }
   83% {
@@ -7858,8 +7830,6 @@ body[data-type="music"] .s-sticker div {
   z-index: -999;
   background-attachment: local;
   background-position: center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
   background-size: cover;
   background-repeat: no-repeat;
   width: 200%;
@@ -7992,8 +7962,6 @@ body:has(#console.show) #nav-music {
   -o-transition: background-image 0.5s ease-in-out;
   -ms-transition: background-image 0.5s ease-in-out;
   transition: background-image 0.5s ease-in-out;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
   background-size: cover;
   background-color: transparent !important;
 }
@@ -8934,8 +8902,6 @@ h1.page-title + .tag-cloud-list {
   border-bottom-left-radius: 8px;
   background-color: #307af6;
   background-position: center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
   background-size: cover;
   height: 100%;
 }
@@ -9943,8 +9909,6 @@ h1.page-title + .tag-cloud-list {
   background: -o-linear-gradient(115deg, var(--anzhiyu-main), var(--anzhiyu-main-op-deep), var(--anzhiyu-main), var(--anzhiyu-main-op-deep));
   background: -ms-linear-gradient(115deg, var(--anzhiyu-main), var(--anzhiyu-main-op-deep), var(--anzhiyu-main), var(--anzhiyu-main-op-deep));
   background: linear-gradient(-25deg, var(--anzhiyu-main), var(--anzhiyu-main-op-deep), var(--anzhiyu-main), var(--anzhiyu-main-op-deep));
-  -webkit-background-size: 400%;
-  -moz-background-size: 400%;
   background-size: 400%;
   position: absolute;
   width: 100%;
@@ -10058,8 +10022,6 @@ h1.page-title + .tag-cloud-list {
 }
 @media screen and (max-width: 992px) {
   #aside-content > .card-info {
-    -webkit-background-size: 100% 70%;
-    -moz-background-size: 100% 70%;
     background-size: 100% 70%;
   }
 }
@@ -10451,8 +10413,6 @@ h1.page-title + .tag-cloud-list {
   background: linear-gradient(180deg, var(--anzhiyu-card-bg-none) 0%, var(--anzhiyu-card-bg) 25%);
   background-attachment: scroll;
   background-position: bottom;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
   background-size: cover;
 }
 @media screen and (max-width: 768px) {
@@ -12183,8 +12143,6 @@ h1.page-title + .tag-cloud-list {
   -o-transition: 0.3s;
   -ms-transition: 0.3s;
   transition: 0.3s;
-  -webkit-background-size: 200%;
-  -moz-background-size: 200%;
   background-size: 200%;
   cursor: pointer;
 }

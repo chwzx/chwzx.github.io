@@ -1,8 +1,446 @@
-extends includes/layout.pug
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>Hexo</title><meta name="author" content="Zexin Wang"><meta name="copyright" content="Zexin Wang"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="Hexo"><meta name="application-name" content="Hexo"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="website"><meta property="og:title" content="Hexo"><meta property="og:url" content="http://example.com/index.html"><meta property="og:site_name" content="Hexo"><meta property="og:description"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg"><meta property="article:author" content="Zexin Wang"><meta property="article:tag"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg"><meta name="description"><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="http://example.com/"><link rel="preconnect" href="//cdn.cbd.int"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  linkPageTop: undefined,
+  peoplecanvas: {"enable":true,"img":"https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png"},
+  postHeadAiDescription: {"enable":true,"gptName":"AnZhiYu","mode":"local","switchBtn":false,"btnLink":"https://afdian.net/item/886a79d4db6711eda42a52540025c377","randomNum":3,"basicWordCount":1000,"key":"xxxx","Referer":"https://xx.xx/"},
+  diytitle: {"enable":true,"leaveTitle":"w(ﾟДﾟ)w 不要走！再看看嘛！","backTitle":"♪(^∇^*)欢迎肥来！"},
+  LA51: undefined,
+  greetingBox: undefined,
+  twikooEnvId: '',
+  commentBarrageConfig:undefined,
+  music_page_default: "nav_music",
+  root: '/',
+  preloader: {"source":3},
+  friends_vue_info: undefined,
+  navMusic: true,
+  mainTone: undefined,
+  authorStatus: undefined,
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"作者: Zexin Wang","link":"链接: ","source":"来源: Hexo","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。","copySuccess":"复制成功，复制和转载请标注本文地址"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  shortcutKey: undefined,
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: 'Hexo',
+  title: 'Hexo',
+  postAI: '',
+  pageFillDescription: '',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-09-24 23:06:23',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
 
-block content
-  include ./includes/mixins/post-ui.pug
-  #recent-posts.recent-posts
-    include includes/categoryGroup.pug
-    +postUI
-    include includes/pagination.pug
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="https://npm.elemecdn.com/anzhiyu-blog-static@1.0.4/img/avatar.jpg"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><a id="site-name" href="/" accesskey="h"><div class="title">Hexo</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"></div><div id="nav-right"><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" target="_blank"><img class="post-qr-code-img" alt="微信" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" target="_blank"><img class="post-qr-code-img" alt="支付宝" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> 最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/09/"><span class="card-archive-list-date">九月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/06/"><span class="card-archive-list-date">六月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/05/"><span class="card-archive-list-date">五月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/07/"><span class="card-archive-list-date">七月 2022</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">3</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/03/"><span class="card-archive-list-date">三月 2022</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/01/"><span class="card-archive-list-date">一月 2022</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav></header><main id="blog-container"><div id="home_top"><div class="swiper_container_card" style="height: auto;width: 100%"><div id="bannerGroup"><div id="random-banner"><canvas id="peoplecanvas"></canvas><a id="random-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-paper-plane"></i><div class="bannerText">随便逛逛<i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div></a></div><div class="categoryGroup"><div class="categoryItem" style="box-shadow:var(--anzhiyu-shadow-blue)"><a class="categoryButton blue" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"><span class="categoryButtonText">前端</span><i class="anzhiyufont anzhiyu-icon-dove"></i></a></div><div class="categoryItem" style="box-shadow:var(--anzhiyu-shadow-red)"><a class="categoryButton red" href="/categories/%E5%A4%A7%E5%AD%A6%E7%94%9F%E6%B6%AF/"><span class="categoryButtonText">大学</span><i class="anzhiyufont anzhiyu-icon-fire"></i></a></div><div class="categoryItem" style="box-shadow:var(--anzhiyu-shadow-green)"><a class="categoryButton green" href="/categories/%E7%94%9F%E6%B4%BB%E6%97%A5%E5%B8%B8/"><span class="categoryButtonText">生活</span><i class="anzhiyufont anzhiyu-icon-book"></i></a></div></div></div><div class="topGroup"><div class="recent-post-item" onclick="pjax.loadUrl(&quot;/2022/03/06/ACM_%E6%95%B0%E8%AE%BA/&quot;)"><div class="post_cover left_radius"><a href="2022/03/06/ACM_数论/" title="ACM 数论部分"><span class="recent-post-top-text">荐</span><img class="post_bg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="cover"></a></div><div class="recent-post-info"><a class="article-title" href="2022/03/06/ACM_数论/" title="ACM 数论部分">ACM 数论部分</a></div></div><div class="recent-post-item" onclick="pjax.loadUrl(&quot;/2024/06/02/HTTP%E8%AF%B7%E6%B1%82%E5%86%85%E5%AE%B9/&quot;)"><div class="post_cover left_radius"><a href="2024/06/02/HTTP请求内容/" title="HTTP请求内容"><span class="recent-post-top-text">荐</span><img class="post_bg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="cover"></a></div><div class="recent-post-info"><a class="article-title" href="2024/06/02/HTTP请求内容/" title="HTTP请求内容">HTTP请求内容</a></div></div><div class="recent-post-item" onclick="pjax.loadUrl(&quot;/2024/09/24/Hot100-Day1/&quot;)"><div class="post_cover left_radius"><a href="2024/09/24/Hot100-Day1/" title=""><span class="recent-post-top-text">荐</span><img class="post_bg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="cover"></a></div><div class="recent-post-info"><a class="article-title" href="2024/09/24/Hot100-Day1/" title=""></a></div></div><div class="recent-post-item" onclick="pjax.loadUrl(&quot;/2022/01/11/Hyperldeger-Fabric%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/&quot;)"><div class="post_cover left_radius"><a href="2022/01/11/Hyperldeger-Fabric环境搭建/" title="Hyperldeger Fabric环境搭建"><span class="recent-post-top-text">荐</span><img class="post_bg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="cover"></a></div><div class="recent-post-info"><a class="article-title" href="2022/01/11/Hyperldeger-Fabric环境搭建/" title="Hyperldeger Fabric环境搭建">Hyperldeger Fabric环境搭建</a></div></div><div class="recent-post-item" onclick="pjax.loadUrl(&quot;/2024/06/02/Rust-Warp%E5%A4%84%E7%90%86HTTP%E8%AF%B7%E6%B1%82/&quot;)"><div class="post_cover left_radius"><a href="2024/06/02/Rust-Warp处理HTTP请求/" title="Rust Warp处理HTTP请求"><span class="recent-post-top-text">荐</span><img class="post_bg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="cover"></a></div><div class="recent-post-info"><a class="article-title" href="2024/06/02/Rust-Warp处理HTTP请求/" title="Rust Warp处理HTTP请求">Rust Warp处理HTTP请求</a></div></div><div class="recent-post-item" onclick="pjax.loadUrl(&quot;/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/&quot;)"><div class="post_cover left_radius"><a href="2022/07/10/以太坊测试网络Rinkeby使用教程/" title="以太坊测试网络Rinkeby使用教程"><span class="recent-post-top-text">荐</span><img class="post_bg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="cover"></a></div><div class="recent-post-info"><a class="article-title" href="2022/07/10/以太坊测试网络Rinkeby使用教程/" title="以太坊测试网络Rinkeby使用教程">以太坊测试网络Rinkeby使用教程</a></div></div><a class="todayCard" id="todayCard" target="_blank" rel="noopener" href="https://docs.anheyu.com/" style="z-index: 1;"><div class="todayCard-info"><div class="todayCard-tips">新品主题</div><div class="todayCard-title">Theme-AnZhiYu</div></div><img class="todayCard-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/05/13/645fa3cf90d70.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="封面"><div class="banner-button-group"><div class="banner-button" onclick="event.stopPropagation();event.preventDefault();anzhiyu.hideTodayCard();"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i><span class="banner-button-text">更多推荐</span></div></div></a></div><link rel="stylesheet"></div></div><div class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div id="categoryBar"><div class="category-bar" id="category-bar"><div id="catalog-bar"><div id="catalog-list"><div class="catalog-list-item" id="首页"><a href="/">首页</a></div></div><div class="category-bar-next" id="category-bar-next" onclick="anzhiyu.scrollCategoryBarToRight()"><i class="anzhiyufont anzhiyu-icon-angle-double-right"></i></div><a class="catalog-more" href="/categories/">更多</a></div></div></div><div class="recent-post-item lastestpost-item" onclick="pjax.loadUrl('/2024/09/24/Hot100-Day1/')"><div class="recent-post-info no-cover"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><span class="newPost">最新</span><a class="unvisited-post" href="/2024/09/24/Hot100-Day1/" title="无题">未读</a></div><a class="article-title" href="/2024/09/24/Hot100-Day1/" title="无题">无题</a></div><div class="article-meta-wrap"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days" style="font-size: 15px; display:none"></i><span class="article-meta-label">发表于</span><time datetime="2024-09-24T14:37:49.877Z" title="发表于 2024-09-24 22:37:49" time="2024-09-24 22:37:49">2024-09-24</time><time class="time_hidden" datetime="2024-09-24T14:43:03.977Z" title="更新于 2024-09-24 22:43:03" time="2024-09-24 22:43:03">2024-09-24</time></span></div><div class="content">1. 两数之和
+示例 1：
+123输入：nums = [2,7,11,15], target = 9输出：[0,1]解释：因为 nums[0] + nums[1] == 9 ，返回 [0, 1] 。
+示例 2：
+12输入：nums = [3,2,4], target = 6输出：[1,2]
+示例 3：
+12输入：nums = [3,3], target = 6输出：[0,1]
+
+Note：$\textcolor{red}{这里返回的是数组下标}$
+
+拒绝暴力做法！
+解法1
+首先，我想先固定一个数，然后再用二分找另一个数。
+截图
+二分的前提是数字是有序的，因此需要先对数组进行排序。排序后数组下标就会乱了，所以需要将原本的数组构造成一个元组 (index, number) 。这里顺便复习了一下快排怎么写的，首先根据基准值划分区间，然后不断重复这个过程。
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162impl  ...</div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/2024/06/02/Rust-Warp%E5%A4%84%E7%90%86HTTP%E8%AF%B7%E6%B1%82/')"><div class="recent-post-info no-cover"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><a class="unvisited-post" href="/2024/06/02/Rust-Warp%E5%A4%84%E7%90%86HTTP%E8%AF%B7%E6%B1%82/" title="Rust Warp处理HTTP请求">未读</a></div><a class="article-title" href="/2024/06/02/Rust-Warp%E5%A4%84%E7%90%86HTTP%E8%AF%B7%E6%B1%82/" title="Rust Warp处理HTTP请求">Rust Warp处理HTTP请求</a></div><div class="article-meta-wrap"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days" style="font-size: 15px; display:none"></i><span class="article-meta-label">发表于</span><time datetime="2024-06-02T02:57:36.000Z" title="发表于 2024-06-02 10:57:36" time="2024-06-02 10:57:36">2024-06-02</time><time class="time_hidden" datetime="2024-06-02T04:35:19.995Z" title="更新于 2024-06-02 12:35:19" time="2024-06-02 12:35:19">2024-06-02</time></span></div><div class="content">在 Rust 的 warp 框架中，处理 HTTP 方法（GET、PUT、POST、DELETE）通常涉及定义路由和使用相应的 warp 函数来匹配请求路径和方法。以下是每种方法的详细示例，包括如何获取请求参数、请求体和响应。
+GET 请求示例
+GET 请求通常用于请求数据。
+1234567891011121314151617181920212223use warp::Filter;// 简单的 GET 请求，返回 &quot;Hello, World!&quot;let get_hello = warp::get()    .and(warp::path(&quot;hello&quot;))    .map(|| &quot;Hello, World!&quot;);// GET 请求，带查询参数let get_query = warp::get()    .and(warp::path(&quot;query&quot;))    .and(warp::query::&lt;Query&gt;()) // 自定义结构体来解析查询参数    .map(|query: Query|  ...</div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/2024/06/02/HTTP%E8%AF%B7%E6%B1%82%E5%86%85%E5%AE%B9/')"><div class="recent-post-info no-cover"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><a class="unvisited-post" href="/2024/06/02/HTTP%E8%AF%B7%E6%B1%82%E5%86%85%E5%AE%B9/" title="HTTP请求内容">未读</a></div><a class="article-title" href="/2024/06/02/HTTP%E8%AF%B7%E6%B1%82%E5%86%85%E5%AE%B9/" title="HTTP请求内容">HTTP请求内容</a></div><div class="article-meta-wrap"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days" style="font-size: 15px; display:none"></i><span class="article-meta-label">发表于</span><time datetime="2024-06-02T02:23:51.000Z" title="发表于 2024-06-02 10:23:51" time="2024-06-02 10:23:51">2024-06-02</time><time class="time_hidden" datetime="2024-06-02T02:53:41.213Z" title="更新于 2024-06-02 10:53:41" time="2024-06-02 10:53:41">2024-06-02</time></span></div><div class="content">HTTP 请求
+最近学习 Rust 服务器开发的时候，自己并不清楚 HTTP 请求具体是什么。还好有 AIGC 能帮助我快速学习这部分知识，很难想象没有 AIGC 的时候我自己的学习方法是多么的低效。接下来进入正题：
+HTTP 请求是客户端（比如一个网页浏览器）发送给服务器的请求信息，它用于获取服务器上的资源或执行某些操作。一个HTTP请求通常包含以下几个部分：
+
+请求行：包含请求方法、请求的资源路径（URL）、HTTP 版本。
+请求头部（Headers）：包含请求的附加信息，如用户代理（User-Agent）、接受的媒体类型（Accept）、内容类型（Content-Type）等。
+请求体（可选）：对于某些请求方法（如 POST 或 PUT ），请求体包含发送给服务器的数据。
+
+1. HTTP GET
+下面是一个简单的HTTP GET请求的例子：
+12345678GET /example.html HTTP/1.1Host: www.example.comUser-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit ...</div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/2024/05/11/Rust%E5%8D%95%E9%93%BE%E8%A1%A8/')"><div class="recent-post-info no-cover"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><a class="unvisited-post" href="/2024/05/11/Rust%E5%8D%95%E9%93%BE%E8%A1%A8/" title="Rust单链表">未读</a></div><a class="article-title" href="/2024/05/11/Rust%E5%8D%95%E9%93%BE%E8%A1%A8/" title="Rust单链表">Rust单链表</a></div><div class="article-meta-wrap"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days" style="font-size: 15px; display:none"></i><span class="article-meta-label">发表于</span><time datetime="2024-05-11T14:40:42.000Z" title="发表于 2024-05-11 22:40:42" time="2024-05-11 22:40:42">2024-05-11</time><time class="time_hidden" datetime="2024-05-11T14:41:08.690Z" title="更新于 2024-05-11 22:41:08" time="2024-05-11 22:41:08">2024-05-11</time></span></div><div class="content">Rust 单链表（Stack）
+​		用C/C++实现链表的时候，我们都需要先定义一个如下的结构体，这样我们就可以利用指针来实现链表的基本操作了，具体过程这里就忽略了（好久没写过C++了，已经不会写了…）。
+1234struct List &#123;	int val;	struct List* next;&#125;;
+思路1
+​		这段代码中定义了一个枚举 List，它有两个变体：Empty 表示空列表，Elem 包含一个整数元素和另一个 List。
+123456789101112131415161718pub enum List &#123;    Empty,    Elem(i32, List),&#125;$ cargo runerror[E0072]: recursive type `List` has infinite size --&gt; src/first.rs:1:1  |1 | pub enum List &#123;  | ^^^^^^^^^^^^^ recursive type has infinite size2 |     Empty,3 |      ...</div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/')"><div class="recent-post-info no-cover"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><a class="unvisited-post" href="/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" title="以太坊测试网络Rinkeby使用教程">未读</a></div><a class="article-title" href="/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" title="以太坊测试网络Rinkeby使用教程">以太坊测试网络Rinkeby使用教程</a></div><div class="article-meta-wrap"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days" style="font-size: 15px; display:none"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-10T08:23:22.000Z" title="发表于 2022-07-10 16:23:22" time="2022-07-10 16:23:22">2022-07-10</time><time class="time_hidden" datetime="2022-07-10T08:26:42.664Z" title="更新于 2022-07-10 16:26:42" time="2022-07-10 16:26:42">2022-07-10</time></span></div><div class="content">出于学习和测试的目的，以太坊官方推出了一些测试网络，使用了与主网络不同的创世区块，测试网中的代币是没有价值的。以太坊公开的测试网络共有4个，目前仍在运行的有4个，分别为Goerli、Ropsten、Kovan、Rinkeby。
+
+一、Rinkeby
+​	Rinkeby 是开发人员目前常用的测试网络，使用PoA共识机制，访问地址: https://www.rinkeby.io/
+​	本文从以下几方面介绍Rinkeby 的基本使用方法：
+
+创建 Rinkeby 账户
+获取 Rinkeby 的以太币
+智能合约部署
+智能合约交互
+
+二、创建 Rinkeby 账户
+​	首先我们需要一个钱包来管理账户，目前可选的有MetaMask、Coinbase Wallet、WalletConnect等，我比较推荐使用主流的MetaMask钱包。本篇文章的所有操作均通过MetaMask进行操作。
+​	1、安装MetaMask
+​	MetaMask属于浏览器插件应用，官网：The crypto wallet for Defi, Web3 Dapps and NFTs | MetaMask，进入后下载安装即可。
+ ...</div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/2022/07/08/%E5%A6%82%E4%BD%95%E5%9C%A8Linux%E4%B8%8A%E9%83%A8%E7%BD%B2IPFS/')"><div class="recent-post-info no-cover"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><a class="unvisited-post" href="/2022/07/08/%E5%A6%82%E4%BD%95%E5%9C%A8Linux%E4%B8%8A%E9%83%A8%E7%BD%B2IPFS/" title="如何在Linux云服务器上部署IPFS">未读</a></div><a class="article-title" href="/2022/07/08/%E5%A6%82%E4%BD%95%E5%9C%A8Linux%E4%B8%8A%E9%83%A8%E7%BD%B2IPFS/" title="如何在Linux云服务器上部署IPFS">如何在Linux云服务器上部署IPFS</a></div><div class="article-meta-wrap"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days" style="font-size: 15px; display:none"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-08T14:52:25.000Z" title="发表于 2022-07-08 22:52:25" time="2022-07-08 22:52:25">2022-07-08</time><time class="time_hidden" datetime="2022-07-08T14:56:22.196Z" title="更新于 2022-07-08 22:56:22" time="2022-07-08 22:56:22">2022-07-08</time></span></div><div class="content">一、准备必须的环境
+配置GoLang环境
+下载GoLang二进制文件
+1234cd /home// 建议自己去GitHub上找一下最新版的链接wget https://go.dev/dl/go1.18.3.linux-amd64.tar.gztar -zxvf go1.18.3.linux-amd64.tar.gz -C /usr/local
+配置GoLang环境
+123456789vim /etc/profile#文件末尾追加（类似于配置java环境）# golang envexport GOROOT=/usr/local/goexport GOPATH=/data/gopathexport PATH=$PATH:$GOROOT/bin:$GOPATH/binsource /etc/profile
+二、IPFS部署
+下载go-ipfs二进制文件，解压后运行install.sh脚本。（因为服务器在国外，所以可能wget失败go-ipfs二进制文件，建议直接去GitHub下载后上传到服务器，GoLang二进制文件同理）
+1234wget https://dist.ipfs.io/go-i ...</div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/2022/07/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT/')"><div class="recent-post-info no-cover"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><a class="unvisited-post" href="/2022/07/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT/" title="如何使用goblintownNFT智能合约发布属于自己的NFT">未读</a></div><a class="article-title" href="/2022/07/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT/" title="如何使用goblintownNFT智能合约发布属于自己的NFT">如何使用goblintownNFT智能合约发布属于自己的NFT</a></div><div class="article-meta-wrap"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days" style="font-size: 15px; display:none"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-08T14:35:29.166Z" title="发表于 2022-07-08 22:35:29" time="2022-07-08 22:35:29">2022-07-08</time><time class="time_hidden" datetime="2022-07-10T08:41:50.455Z" title="更新于 2022-07-10 16:41:50" time="2022-07-10 16:41:50">2022-07-10</time></span></div><div class="content">一、安装并注册MateMask钱包账户
+1、安装MetaMask
+MetaMask属于浏览器插件应用，官网：The crypto wallet for Defi, Web3 Dapps and NFTs | MetaMask，进入后下载安装即可。
+2、注册
+接下来就是简单的注册过程，此处需要保存好自己的助记词。按照我的理解，助记词是为了让你在忘记MetaMask登录密码时能够找回自己的钱包。MetaMask钱包能够注册多个账户。
+二、切换至Rinkeby测试网络
+此处参考我的另一篇博客《Rinkeby以太坊测试网络部署》
+三、goblintownNFT合约的部署
+1、进入goblintown将该项目的智能合约copy到在线solidity编辑网站Remix
+
+2、编译并部署到以太坊测试网络Rinkeby中
+
+最左侧红框中没有出现红色就说明智能合约语法不存在错误。
+
+不出意外的话，到这里合约就已经部署完成了。5号红框那里有合约在以太坊上的地址，我们可以到Etherscan中查看这个地址，包括后续的一些合约操作，交易记录等都会在上面显示。同时，我们可以看到合约中的函数，如下图所示：
+
+四、 ...</div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/')"><div class="recent-post-info no-cover"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><a class="unvisited-post" href="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/" title="区块链溯源系统环境部署">未读</a></div><a class="article-title" href="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/" title="区块链溯源系统环境部署">区块链溯源系统环境部署</a></div><div class="article-meta-wrap"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days" style="font-size: 15px; display:none"></i><span class="article-meta-label">发表于</span><time datetime="2022-03-05T16:54:40.819Z" title="发表于 2022-03-06 00:54:40" time="2022-03-06 00:54:40">2022-03-06</time><time class="time_hidden" datetime="2022-07-08T14:18:42.767Z" title="更新于 2022-07-08 22:18:42" time="2022-07-08 22:18:42">2022-07-08</time></span></div><div class="content">以下教程是在win10上完成的。
+软件安装
+nodejs安装：https://nodejs.org/zh-cn/download/   这是用来运行前端的
+win键+r键 ，输入cmd,看一下npm版本，有版本就代表成功了。
+12C:\Users\2407288830&gt;npm -version6.13.4  
+idea安装和破解：https://www.mubucm.com/doc/rTDUIGvfnk   用来运行后端
+java jdk要求：建议1.8版本      一定要是64位的，不然使用链区块sdk的时候会报错
+finalshell安装：http://www.hostbuf.com/t/988.html   相当于xshell，用来连接服务器的。
+Hyperledger Fabric1.4.0 环境配置
+部署最简单的Hyperleger fabric，首先需要买个服务器:https://www.aliyun.com/minisite/goods?userCode=svaj1q3t&amp;share_source=copy_link
+有钱买配置好一点，2核4G，没钱买1核 ...</div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/2022/03/06/ACM_%E6%95%B0%E8%AE%BA/')"><div class="recent-post-info no-cover"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><a class="unvisited-post" href="/2022/03/06/ACM_%E6%95%B0%E8%AE%BA/" title="ACM 数论部分">未读</a></div><a class="article-title" href="/2022/03/06/ACM_%E6%95%B0%E8%AE%BA/" title="ACM 数论部分">ACM 数论部分</a></div><div class="article-meta-wrap"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days" style="font-size: 15px; display:none"></i><span class="article-meta-label">发表于</span><time datetime="2022-03-05T16:54:40.815Z" title="发表于 2022-03-06 00:54:40" time="2022-03-06 00:54:40">2022-03-06</time><time class="time_hidden" datetime="2022-01-10T12:19:00.000Z" title="更新于 2022-01-10 20:19:00" time="2022-01-10 20:19:00">2022-01-10</time></span></div><div class="content">ACM/ICPC中的数学
+一些数论基本定理
+( a + b ) mod c = ((a mod c) + (b mod c)) mod c
+( a * b ) mod c = ((a mod c) * (b mod c)) mod c
+消去律：若 gcd(c,p) = 1,则(gcd表示同余数)
+ac ≡ bc mod p =&gt; a ≡ b mod p
+快速幂
+算法一
+1234567891011int Pow(int a,int b)&#123; //快速求a^b ，复杂度 log(b)     if(b == 0)        return 1;     if(b &amp; 1) &#123; //b是奇数        return a * Pow(a,b-1);    &#125; else &#123;        int t = Pow(a,b/2);        return t * t;    &#125; &#125;
+算法二
+123456789101112int Pow(int a,int b)&#123; //快速求a^b ，复杂度 log(b)    ...</div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/2022/01/11/Hyperldeger-Fabric%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/')"><div class="recent-post-info no-cover"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><a class="unvisited-post" href="/2022/01/11/Hyperldeger-Fabric%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" title="Hyperldeger Fabric环境搭建">未读</a></div><a class="article-title" href="/2022/01/11/Hyperldeger-Fabric%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" title="Hyperldeger Fabric环境搭建">Hyperldeger Fabric环境搭建</a></div><div class="article-meta-wrap"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days" style="font-size: 15px; display:none"></i><span class="article-meta-label">发表于</span><time datetime="2022-01-11T15:09:06.000Z" title="发表于 2022-01-11 23:09:06" time="2022-01-11 23:09:06">2022-01-11</time><time class="time_hidden" datetime="2022-07-08T14:24:09.600Z" title="更新于 2022-07-08 22:24:09" time="2022-07-08 22:24:09">2022-07-08</time></span></div><div class="content">Hyperledger Fabric环境搭建
+Linux环境
+Vmware或者云服务器，推荐CentOS7.0版本及以上，Ubuntu也可以。
+因为hyperledger fabric源码在github上，自己搭建Linux环境大概率会在后面出现git项目失败。为了节省时间，我毕业设计的服务器搭建在了腾讯云服务器上。在云服务器上一下步骤一遍通过！2022年1月11日尝试用VMWare虚拟机中的CentOS7.6搭建一下环境，中间出现了多次git失败的情况，最终耗费数小时还是成功部署环境。
+更换yum源
+12345678910# 安装vimyum install vimyum install wget -ycd /etc/yum.repos.d/wget http://mirrors.aliyun.com/repo/Centos-7.repoCmv CentOS-Base.repo CentOS-Base.repo.bakmv Centos-7.repo CentOS-Base.repoyum clean allyum makecacheyum update
+docker
+1234567 ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><div class="toPageGroup"><input id="toPageText" oninput="value=value.replace(/[^0-9]/g,'')" maxlength="3" onkeyup="this.value=this.value.replace(/[^u4e00-u9fa5w]/g,'')" aria-label="toPage"><a id="toPageButton" onclick="anzhiyu.toPage()"><i class="anzhiyufont anzhiyu-icon-angles-right" style="font-weight: inherit; font-size: 1rem;"></i></a></div></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info-avatar"><img class="avatar-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__description"></div></div></div><div class="card-widget anzhiyu-right-widget" id="card-wechat" onclick="null"><div id="flip-wrapper"><div id="flip-content"><div class="face" style="background: url(https://bu.dusays.com/2023/01/13/63c02edf44033.png) center center / 100% no-repeat"></div><div class="back face" style="background: url(https://bu.dusays.com/2023/05/13/645fa415e8694.png) center center / 100% no-repeat"></div></div></div></div><div class="sticky_layout"><div class="card-widget"><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/09/"><span class="card-archive-list-date">九月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/06/"><span class="card-archive-list-date">六月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/05/"><span class="card-archive-list-date">五月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/07/"><span class="card-archive-list-date">七月 2022</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">3</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/03/"><span class="card-archive-list-date">三月 2022</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/01/"><span class="card-archive-list-date">一月 2022</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li></ul></div><hr/><div class="card-webinfo"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="webinfo-item-title"><i class="anzhiyufont anzhiyu-icon-file-lines"></i><div class="item-name">文章总数 :</div></div><div class="item-count">10</div></div><div class="webinfo-item"><div class="webinfo-item-title"><i class="anzhiyufont anzhiyu-icon-stopwatch"></i><div class="item-name">建站天数 :</div></div><div class="item-count" id="runtimeshow" data-publishDate="2021-03-31T16:00:00.000Z"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></div></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2020 - 2024 By <a class="footer-bar-link" href="/" title="Zexin Wang" target="_blank">Zexin Wang</a></div></div><div id="footer-type-tips"></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu" title="主题">主题</a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/" title="tag"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/" title="category"><div class="headline">分类</div><div class="length-num">0</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="显示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>显示模式</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://blog.anheyu.com/" title="博客"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="博客"/><span class="back-menu-item-text">博客</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://image.anheyu.com/" title="安知鱼图床"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://image.anheyu.com/favicon.ico" alt="安知鱼图床"/><span class="back-menu-item-text">安知鱼图床</span></a></div></div></div><span class="sidebar-menu-item-title">标签</span></div></div><div id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="8152976493" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random" volume="0.7"></meting-js></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@17.8.5/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script>// 消除控制台打印
+var HoldLog = console.log;
+console.log = function () {};
+let now1 = new Date();
+queueMicrotask(() => {
+  const Log = function () {
+    HoldLog.apply(console, arguments);
+  }; //在恢复前输出日志
+  const grt = new Date("04/01/2021 00:00:00"); //此处修改你的建站时间或者网站上线时间
+  now1.setTime(now1.getTime() + 250);
+  const days = (now1 - grt) / 1000 / 60 / 60 / 24;
+  const dnum = Math.floor(days);
+  const ascll = [
+    `欢迎使用安知鱼!`,
+    `生活明朗, 万物可爱`,
+    `
+        
+       █████╗ ███╗   ██╗███████╗██╗  ██╗██╗██╗   ██╗██╗   ██╗
+      ██╔══██╗████╗  ██║╚══███╔╝██║  ██║██║╚██╗ ██╔╝██║   ██║
+      ███████║██╔██╗ ██║  ███╔╝ ███████║██║ ╚████╔╝ ██║   ██║
+      ██╔══██║██║╚██╗██║ ███╔╝  ██╔══██║██║  ╚██╔╝  ██║   ██║
+      ██║  ██║██║ ╚████║███████╗██║  ██║██║   ██║   ╚██████╔╝
+      ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝    ╚═════╝
+        
+        `,
+    "已上线",
+    dnum,
+    "天",
+    "©2020 By 安知鱼 V1.6.12",
+  ];
+  const ascll2 = [`NCC2-036`, `调用前置摄像头拍照成功，识别为【小笨蛋】.`, `Photo captured: `, `🤪`];
+
+  setTimeout(
+    Log.bind(
+      console,
+      `\n%c${ascll[0]} %c ${ascll[1]} %c ${ascll[2]} %c${ascll[3]}%c ${ascll[4]}%c ${ascll[5]}\n\n%c ${ascll[6]}\n`,
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      ""
+    )
+  );
+  setTimeout(
+    Log.bind(
+      console,
+      `%c ${ascll2[0]} %c ${ascll2[1]} %c \n${ascll2[2]} %c\n${ascll2[3]}\n`,
+      "color:white; background-color:#4fd953",
+      "",
+      "",
+      'background:url("https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/tinggge.gif") no-repeat;font-size:450%'
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c WELCOME %c 你好，小笨蛋.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(
+      console,
+      "%c ⚡ Powered by 安知鱼 %c 你正在访问 Zexin Wang 的博客.",
+      "color:white; background-color:#f0ad4e",
+      ""
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c W23-12 %c 你已打开控制台.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(console, "%c S013-782 %c 你现在正处于监控中.", "color:white; background-color:#d9534f", "")
+  );
+});</script><script async src="/anzhiyu/random.js"></script><div class="js-pjax"><script>if (typeof gsap === "object") {
+  getScript("/js/anzhiyu/people.js", {defer:true})
+} else {
+  getScript("https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/gsap/gsap.min.js").then(()=>{
+    getScript("/js/anzhiyu/people.js", {defer:true})
+  });
+}</script><input type="hidden" name="page-type" id="page-type" value="anzhiyu"></div><script>var visitorMail = "";
+</script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>

@@ -1,45 +1,507 @@
-extends includes/layout.pug
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>区块链溯源系统环境部署 | Hexo</title><meta name="author" content="Zexin Wang"><meta name="copyright" content="Zexin Wang"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="区块链溯源系统环境部署"><meta name="application-name" content="区块链溯源系统环境部署"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="区块链溯源系统环境部署"><meta property="og:url" content="http://example.com/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/index.html"><meta property="og:site_name" content="Hexo"><meta property="og:description" content="以下教程是在win10上完成的。 软件安装 nodejs安装：https:&amp;#x2F;&amp;#x2F;nodejs.org&amp;#x2F;zh-cn&amp;#x2F;download&amp;#x2F;   这是用来运行前端的 win键+r键 ，输入cmd,看一下npm版本，有版本就代表成功了。 12C:\Users\2407288830&amp;gt;npm -version"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg"><meta property="article:author" content="Zexin Wang"><meta property="article:tag"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg"><meta name="description" content="以下教程是在win10上完成的。 软件安装 nodejs安装：https:&amp;#x2F;&amp;#x2F;nodejs.org&amp;#x2F;zh-cn&amp;#x2F;download&amp;#x2F;   这是用来运行前端的 win键+r键 ，输入cmd,看一下npm版本，有版本就代表成功了。 12C:\Users\2407288830&amp;gt;npm -version"><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="http://example.com/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/"><link rel="preconnect" href="//cdn.cbd.int"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  linkPageTop: undefined,
+  peoplecanvas: {"enable":true,"img":"https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png"},
+  postHeadAiDescription: {"enable":true,"gptName":"AnZhiYu","mode":"local","switchBtn":false,"btnLink":"https://afdian.net/item/886a79d4db6711eda42a52540025c377","randomNum":3,"basicWordCount":1000,"key":"xxxx","Referer":"https://xx.xx/"},
+  diytitle: {"enable":true,"leaveTitle":"w(ﾟДﾟ)w 不要走！再看看嘛！","backTitle":"♪(^∇^*)欢迎肥来！"},
+  LA51: undefined,
+  greetingBox: undefined,
+  twikooEnvId: '',
+  commentBarrageConfig:undefined,
+  music_page_default: "nav_music",
+  root: '/',
+  preloader: {"source":3},
+  friends_vue_info: undefined,
+  navMusic: true,
+  mainTone: undefined,
+  authorStatus: undefined,
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"作者: Zexin Wang","link":"链接: ","source":"来源: Hexo","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。","copySuccess":"复制成功，复制和转载请标注本文地址"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  shortcutKey: undefined,
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: 'Hexo',
+  title: '区块链溯源系统环境部署',
+  postAI: '',
+  pageFillDescription: '软件安装, Hyperledger Fabric1.4.0 环境配置, 开放服务器的端口, 使用finalShell连接服务器, Fabric v1.4.0安装部署  全程复制粘贴就ok, 一、前期准备, 二、Fabric安装, bootstrap.sh脚本成功下载文件以下不需要操作不需要操作, 通过运行Build your first network样例来进行测试, 项目运行, 运行后端项目, 运行前端项目, 运行区块链sdk, 准备工作, 域名映射, 启动网络, 生成tx文件以下教程是在上完成的软件安装安装这是用来运行前端的键键输入看一下版本有版本就代表成功了安装和破解用来运行后端要求建议版本一定要是位的不然使用链区块的时候会报错安装相当于用来连接服务器的环境配置部署最简单的首先需要买个服务器有钱买配置好一点核没钱买核当然带宽是越大越好最好也可以用就是有点慢和系统都行我这个教程用的是系统如果你使用虚拟机也是完全的但是操作可能会有一点点小的事故比如连不上网可能需要百度一下自己解决一下开放服务器的端口使用连接服务器安装部署全程复制粘贴就一前期准备编号工具版本号最新版及其以上版本及其以上版本最新版安装下载最新版的并将其解压到指定目录此处以目录为例编译并安装通过运行查看是否安装成功若结果如下图所示则表示安装成功若出现下图所示错误则需进行如下操作没出现错误则不需要以下操作在加入这一行内容执行下列命令使加入的内容生效和安装参考启动下载二进制文件这一步可能出现下载不了的情况会一直等待建立连接终止掉多试几次就好了可以查看是否安装成功安装下载并将其解压到指定目录此处为按插入以下内容键退出键键输入回车退出文件内容如下所示执行已有的向中写入相应的环境变量更改的权限使其可执行执行脚本使环境变量生效二安装将下载到目录中克隆项目并切换到这一步容易卡在一直处于建立连接中断掉重新再来安装和相关的镜像用注释掉函数安装以及第三方镜像值得注意的是如果由于网络问题此处通过脚本安装可能会出错此时可进行手动安装安装步骤如下将指定版本的特定于平台的二进制文件和配置文件安装到的和目录中向中写入环境变量使环境变量生效脚本成功下载文件以下不需要操作不需要操作下载相关镜像下载相关镜像此处以镜像为例其他镜像同理下载第三方镜像此处以为例其他镜像同理下载镜像可选镜像的备份与恢复将上述镜像存储到文件中若需要多机部署则通过下列命令将其分发到其他机器在上加载上述镜像通过运行样例来进行测试编译通过开发的并启动相关的容器启动过程比较长可能需要几分钟停止网络中所有的容器删除材料和个以及镜像请不要随便使用该命令到这里就算运行成功项目运行是运行就可以了运行后端项目运行前端项目在目录中输入回车输入回车注意如果发现没有目录需要先执行一下运行区块链准备工作域名映射编辑在最后一行添加下面内容是你自己服务器虚拟机的地址启动网络更改世界状态数据库是启动访问方式启动个个个个个生成文件将目录下的文件拷贝到工程的目录下注意其中在版本目录下的文件没有但是可以拷贝同个目录下的的文件将生成的文件拷贝到工程的目录下乱码配置之前的项目这样配置的你可以按照这样配置下不然可能乱码打开注意的一定要是位路径是双斜杠运行项目在浏览器中调用在浏览器中依次访问下面的网址不要重复执行创建通道安装智能合约实例化智能合约比较慢三种用户可以去表里面找对应的账户和密码',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-07-08 22:18:42',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
 
-block content
-  #post
-    if top_img === false || page.bilibili_bg
-      include includes/header/post-info.pug
-    if theme.post_head_ai_description
-      include includes/anzhiyu/ai-info.pug
-    - let url = page.copyright_url || page.permalink
-    article#article-container.post-content(itemscope itemtype=url_for(url))
-      header
-        if (theme.post_meta.post.categories && page.categories && page.categories.data.length > 0)
-          each item, index in page.categories.data
-            a(href=url_for(item.path) itemprop="url").post-meta-categories #[=item.name]
-        if (theme.post_meta.page.tags)
-          each item, index in page.tags.data
-            a(href=url_for(item.path) tabindex="-1" itemprop="url")=item.name
-        h1#CrawlerTitle(itemprop="name headline")= page.title || _p('no_title')
-        - let author = page.copyright_author || config.author
-        span(itemprop="author" itemscope itemtype="http://schema.org/Person")=author
-        if (theme.post_meta.post.date_type)
-          if (theme.post_meta.post.date_type === 'both')
-            time(itemprop="dateCreated datePublished" datetime=date_xml(page.date) title=_p('post.created') + ' ' + full_date(page.date))=date(page.date, config.date_format)
-            time(itemprop="dateCreated datePublished" datetime=date_xml(page.updated) title=_p('post.updated') + ' ' + full_date(page.updated))=date(page.updated, config.date_format)
-          else
-            - let data_type_update = theme.post_meta.post.date_type === 'updated'
-            - let date_type = data_type_update ? 'updated' : 'date'
-            time(itemprop="dateCreated datePublished" datetime=date_xml(page[date_type]) title=date_title + ' ' + full_date(page[date_type]))=date(page[date_type], config.date_format)
-      !=page.content
-
-    include includes/post/post-copyright.pug
-
-    //- ad
-    if theme.ad && theme.ad.post
-      .ads-wrap!=theme.ad.post
-
-    if theme.post_pagination
-      include includes/pagination.pug
-    if theme.related_post && theme.related_post.enable
-      != related_posts(page,site.posts)
-
-    if page.comments !== false && theme.comments && theme.comments.use
-      - var commentsJsLoad = true
-      !=partial('includes/third-party/comments/index', {}, {cache: true})
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
       
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="https://npm.elemecdn.com/anzhiyu-blog-static@1.0.4/img/avatar.jpg"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><a id="site-name" href="/" accesskey="h"><div class="title">Hexo</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"></div><div id="nav-right"><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" target="_blank"><img class="post-qr-code-img" alt="微信" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" target="_blank"><img class="post-qr-code-img" alt="支付宝" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> 最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/09/"><span class="card-archive-list-date">九月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/06/"><span class="card-archive-list-date">六月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/05/"><span class="card-archive-list-date">五月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/07/"><span class="card-archive-list-date">七月 2022</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">3</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/03/"><span class="card-archive-list-date">三月 2022</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/01/"><span class="card-archive-list-date">一月 2022</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="article-meta tags"></span></div></div><h1 class="post-title" itemprop="name headline">区块链溯源系统环境部署</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2022-03-05T16:54:40.819Z" title="发表于 2022-03-06 00:54:40">2022-03-06</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2022-07-08T14:18:42.767Z" title="更新于 2022-07-08 22:18:42">2022-07-08</time></span></div><div class="meta-secondline"><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为长沙"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>长沙</span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src=""></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="http://example.com/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/"><header><h1 id="CrawlerTitle" itemprop="name headline">区块链溯源系统环境部署</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">Zexin Wang</span><time itemprop="dateCreated datePublished" datetime="2022-03-05T16:54:40.819Z" title="发表于 2022-03-06 00:54:40">2022-03-06</time><time itemprop="dateCreated datePublished" datetime="2022-07-08T14:18:42.767Z" title="更新于 2022-07-08 22:18:42">2022-07-08</time></header><p>以下教程是在win10上完成的。</p>
+<h1>软件安装</h1>
+<p>nodejs安装：<a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn/download/">https://nodejs.org/zh-cn/download/</a>   这是用来运行前端的</p>
+<p>win键+r键 ，输入cmd,看一下npm版本，有版本就代表成功了。</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">C:\<span class="title">Users</span>\2407288830&gt;<span class="title">npm</span> -<span class="title">version</span></span></span><br><span class="line"><span class="function">6.13.4  </span></span><br></pre></td></tr></table></figure>
+<p>idea安装和破解：<a target="_blank" rel="noopener" href="https://www.mubucm.com/doc/rTDUIGvfnk">https://www.mubucm.com/doc/rTDUIGvfnk</a>   用来运行后端</p>
+<p>java jdk要求：建议1.8版本      一定要是64位的，不然使用链区块sdk的时候会报错</p>
+<p>finalshell安装：<a target="_blank" rel="noopener" href="http://www.hostbuf.com/t/988.html">http://www.hostbuf.com/t/988.html</a>   相当于xshell，用来连接服务器的。</p>
+<h1>Hyperledger Fabric1.4.0 环境配置</h1>
+<p>部署最简单的Hyperleger fabric，首先需要买个服务器:<a target="_blank" rel="noopener" href="https://www.aliyun.com/minisite/goods?userCode=svaj1q3t&amp;share_source=copy_link">https://www.aliyun.com/minisite/goods?userCode=svaj1q3t&amp;share_source=copy_link</a></p>
+<p>有钱买配置好一点，2核4G，没钱买1核2G，当然带宽是越大越好，5M最好，1M也可以用，就是有点慢，Centos和Ubuntu系统都行，我这个教程用的是Centos系统。如果你使用虚拟机也是完全ok的，但是操作可能会有一点点小的事故，比如连不上网，可能需要百度一下自己解决一下。</p>
+<h2 id="开放服务器的端口">开放服务器的端口</h2>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image1.png" class="">
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211213152631550.png" class="">
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211213152650088.png" class="">
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211213152706298.png" class="">
+<h2 id="使用finalShell连接服务器">使用finalShell连接服务器</h2>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211214141123682.png" class="">
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211214141744104.png" class="">
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211214141920066.png" class="">
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211214142651435.png" class="">
+<h2 id="Fabric-v1-4-0安装部署-全程复制粘贴就ok">Fabric v1.4.0安装部署  全程复制粘贴就ok</h2>
+<h3 id="一、前期准备">一、前期准备</h3>
+<table>
+<thead>
+<tr>
+<th>编号</th>
+<th>工具</th>
+<th>版本号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a target="_blank" rel="noopener" href="https://curl.haxx.se/download.html">cURL</a></td>
+<td>最新版（7.63.0）</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a target="_blank" rel="noopener" href="https://www.docker.com/get-started">Docker</a></td>
+<td>17.06.2-ce及其以上版本</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a target="_blank" rel="noopener" href="https://docs.docker.com/compose/overview/">Docker Compose</a></td>
+<td>1.14.0及其以上版本</td>
+</tr>
+<tr>
+<td>4</td>
+<td><a target="_blank" rel="noopener" href="https://golang.org/dl/">Go</a></td>
+<td>1.11.x</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>
+<p><strong>cURL最新版安装</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下载最新版的cURL并将其解压到指定目录（此处以/opt目录为例）</span></span><br><span class="line"><span class="built_in">cd</span> /</span><br><span class="line">mkdir resource</span><br><span class="line"><span class="built_in">cd</span> /resource</span><br><span class="line">wget https://curl.haxx.se/download/curl-7.63.0.tar.gz</span><br><span class="line">sudo tar xzvf curl-7.63.0.tar.gz -C /opt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 编译并安装cURL</span></span><br><span class="line"><span class="built_in">cd</span> /opt/curl-7.63.0</span><br><span class="line">./configure</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
+<p>通过运行<code>curl --version</code>查看是否安装成功，若结果如下图所示，则表示安装成功。</p>
+<p><strong>若出现下图所示错误，则需进行如下操作,没出现错误则不需要以下操作。</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在/etc/ld.so.conf加入/usr/local/lib这一行内容</span></span><br><span class="line">sudo <span class="built_in">echo</span> <span class="string">&quot;/usr/local/lib&quot;</span> &gt;&gt; /etc/ld.so.conf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 执行下列命令使加入的内容生效</span></span><br><span class="line">sudo /sbin/ldconfig -v</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>Docker和Docker Compose安装</strong></p>
+<ul>
+<li>
+<p>Docker(参考<a target="_blank" rel="noopener" href="https://docs.docker.com/engine/install/centos/">Get Docker CE for Ubuntu</a>)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install -y yum-utils</span><br><span class="line"></span><br><span class="line">sudo yum-config-manager \</span><br><span class="line">    --add-repo \</span><br><span class="line">    https://download.docker.com/linux/centos/docker-ce.repo</span><br><span class="line">   </span><br><span class="line">sudo yum install docker-ce docker-ce-cli containerd.io</span><br><span class="line"><span class="comment">#启动docker</span></span><br><span class="line">sudo systemctl start docker</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>Docker Compose</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下载Docker Compose二进制文件,这一步可能出现下载不了的情况，会一直等待建立连接，ctrl+C终止掉，多试几次就好了</span></span><br><span class="line"></span><br><span class="line">sudo curl -L <span class="string">&quot;https://github.com/docker/compose/releases/download/1.23.2/docker-compose-<span class="subst">$(uname -s)</span>-<span class="subst">$(uname -m)</span>&quot;</span> -o /usr/<span class="built_in">local</span>/bin/docker-compose</span><br><span class="line"></span><br><span class="line">sudo chmod +x /usr/<span class="built_in">local</span>/bin/docker-compose</span><br><span class="line"><span class="comment">#可以查看是否安装成功</span></span><br><span class="line">docker-compose -version</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Go安装</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下载go1.11.linux-amd64.tar.gz并将其解压到指定目录（此处为/usr/local）</span></span><br><span class="line"> <span class="built_in">cd</span> /resource/</span><br><span class="line">wget https://studygolang.com/dl/golang/go1.11.linux-amd64.tar.gz</span><br><span class="line">tar xzvf go1.11.linux-amd64.tar.gz -C /usr/<span class="built_in">local</span></span><br><span class="line">touch goenvset.sh</span><br><span class="line">vim goenvset.sh</span><br><span class="line"><span class="comment">#按i插入以下内容，ESC键退出，shift键+:键输入wq 回车退出</span></span><br><span class="line">goenvset.sh文件内容如下所示：</span><br><span class="line"></span><br><span class="line">cat &gt;&gt; /etc/profile &lt;&lt; <span class="string">EOF</span></span><br><span class="line"><span class="string">export GOROOT=/usr/local/go</span></span><br><span class="line"><span class="string">export GOARCH=amd64</span></span><br><span class="line"><span class="string">export GOOS=linux</span></span><br><span class="line"><span class="string">export GOPATH=/home/ubuntu/gopath</span></span><br><span class="line"><span class="string">export GOBIN=$GOPATH/bin</span></span><br><span class="line"><span class="string">export PATH=$GOPATH/bin:$GOROOT/bin:$PATH</span></span><br><span class="line"><span class="string">EOF</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 执行已有的goenvset.sh向/etc/profile中写入相应的环境变量</span></span><br><span class="line">sudo chmod 705 goenvset.sh      <span class="comment"># 更改goenvset.sh的权限使其可执行</span></span><br><span class="line">sudo ./goenvset.sh				<span class="comment"># 执行goenvset.sh脚本</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使环境变量生效</span></span><br><span class="line"><span class="built_in">source</span> /etc/profile</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="二、Fabric安装">二、Fabric安装</h3>
+<ol>
+<li>
+<p>将fabric-samples下载到<code>$GOPATH/src/github.com/hyperledger</code>目录中</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p <span class="variable">$GOPATH</span>/src/github.com/hyperledger</span><br><span class="line"><span class="built_in">cd</span> <span class="variable">$GOPATH</span>/src/github.com/hyperledger</span><br><span class="line"><span class="comment"># 克隆fabric-samples项目并切换到v1.4tag</span></span><br><span class="line">yum -y install git</span><br><span class="line"><span class="comment">#这一步容易卡在一直处于建立连接中，ctrl+c断掉，重新再来</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/hyperledger/fabric-samples.git</span><br><span class="line"><span class="built_in">cd</span> fabric-samples</span><br><span class="line">git checkout -b sample v1.4.0</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>安装Fabric Binaries和Fabric相关的Docker镜像</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> <span class="variable">$GOPATH</span>/src/github.com/hyperledger/fabric-samples/scripts</span><br><span class="line">vim bootstrap.sh </span><br><span class="line"></span><br><span class="line"><span class="comment">#用#注释掉binaryDownload()函数</span></span><br></pre></td></tr></table></figure>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211214151145232.png" class="">
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">安装Fabric、Fabric-ca以及第三方Docker镜像（./bootstrap.sh &lt;fabric&gt; &lt;fabric-ca&gt; &lt;thirdparty&gt;）</span><br><span class="line">./bootstrap.sh 1.4.0 1.4.0 0.4.14</span><br></pre></td></tr></table></figure>
+<p>值得注意的是，如果由于网络问题，此处通过<code>bootstrap.sh</code>脚本安装可能会出错，此时可进行手动安装。安装步骤如下：</p>
+<ul>
+<li>
+<p>将指定版本的Hyperledger Fabric特定于平台的二进制文件和配置文件安装到fabric-samples的bin和config目录中</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /resource/</span><br><span class="line">wget https://github.com/hyperledger/fabric/releases/download/v1.4.0/hyperledger-fabric-linux-amd64-1.4.0.tar.gz</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">wget https://github.com/hyperledger/fabric-ca/releases/download/v1.4.0/hyperledger-fabric-ca-linux-amd64-1.4.0.tar.gz</span><br><span class="line"></span><br><span class="line">tar xzvf hyperledger-fabric-linux-amd64-1.4.0.tar.gz -C <span class="variable">$GOPATH</span>/src/github.com/hyperledger/fabric-samples/</span><br><span class="line">tar xzvf hyperledger-fabric-ca-linux-amd64-1.4.0.tar.gz -C <span class="variable">$GOPATH</span>/src/github.com/hyperledger/fabric-samples/</span><br><span class="line"></span><br><span class="line"><span class="comment">#向/etc/profile中写入环境变量</span></span><br><span class="line">sudo <span class="built_in">echo</span> <span class="string">&#x27;export PATH=$GOPATH/src/github.com/hyperledger/fabric-samples/bin:$PATH&#x27;</span> &gt;&gt; /etc/profile</span><br><span class="line"></span><br><span class="line"><span class="comment">#使环境变量生效</span></span><br><span class="line"><span class="built_in">source</span> /etc/profile</span><br></pre></td></tr></table></figure>
+<h3 id="bootstrap-sh脚本成功下载文件，以下不需要操作-不需要操作">bootstrap.sh脚本成功下载文件，以下不需要操作,不需要操作</h3>
+</li>
+<li>
+<p>下载相关Docker镜像</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下载Fabric相关镜像（fabric-peer、fabric-orderer、fabric-ccenv、fabric-tools），此处以fabric-peer镜像为例，其他镜像同理</span></span><br><span class="line">docker pull hyperledger/fabric-peer:1.4.0</span><br><span class="line">docker tag hyperledger/fabric-peer:1.4.0 hyperledger/fabric-peer:latest</span><br><span class="line"></span><br><span class="line"><span class="comment"># 下载Fabric第三方镜像（fabric-couchdb、fabric-kafka、fabric-zookeeper），此处以fabric-couchdb为例，其他镜像同理</span></span><br><span class="line">docker pull hyperledger/fabric-couchdb:0.4.14</span><br><span class="line">docker tag hyperledger/fabric-couchdb:0.4.14 hyperledger/fabric-couchdb:latest</span><br><span class="line"></span><br><span class="line"><span class="comment"># 下载Fabric CA镜像</span></span><br><span class="line">docker pull hyperledger/fabric-ca:1.4.0</span><br><span class="line">docker tag hyperledger/fabric-ca:1.4.0 hyperledger/fabric-ca:latest</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>（可选）镜像的备份与恢复</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将上述Docker镜像存储到fabric-images文件中</span></span><br><span class="line">docker save $(docker images | grep fabric | grep latest | awk <span class="string">&#x27;&#123;print $1&#125;&#x27;</span>) -o fabric-images</span><br><span class="line"><span class="comment"># 若需要多机部署，则通过下列命令将其分发到其他机器</span></span><br><span class="line">scp fabric-images ubuntu@192.168.70.21:~</span><br><span class="line"><span class="comment"># 在192.168.70.21上加载上述镜像</span></span><br><span class="line">docker load -o fabric-images</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="通过运行Build-your-first-network样例来进行测试">通过运行<code>Build your first network</code>样例来进行测试</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> <span class="variable">$GOPATH</span>/src/github.com/hyperledger/fabric-samples/first-network</span><br><span class="line"><span class="comment"># 编译通过Golang开发的chaincode并启动相关的容器</span></span><br><span class="line">启动（过程比较长，可能需要几分钟）</span><br><span class="line">./byfn.sh up   </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#停止first-network网络中所有的容器，删除crypto材料和4个artifacts（genesis.block、mychannel.block、Org1MSPanchor.tx、Org2MSPanchor.tx）以及chaincode镜像</span></span><br><span class="line">./byfn.sh down   <span class="comment">#请不要随便使用该命令</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211215145958700.png" class=""> 
+<p>到这里就算运行成功。</p>
+<h1>项目运行</h1>
+<p>sdkdemo是fabric sdk,运行sdkdemo就可以了。</p>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211215153244642.png" class=""> 
+<h2 id="运行后端项目">运行后端项目</h2>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211215153505822.png" class="">
+<h2 id="运行前端项目">运行前端项目</h2>
+<p>在目录oldlot中输入cmd回车</p>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211215153559581.png" class="">
+<p>输入npm run dev 回车</p>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211215153705078.png" class=""> 
+<p>注意：如果发现没有node_modules目录，需要先执行一下npm install</p>
+<h2 id="运行区块链sdk">运行区块链sdk</h2>
+<h3 id="准备工作">准备工作</h3>
+<h6 id="域名映射">域名映射</h6>
+<p>编辑<code>C:\Windows\System32\drivers\etc\host</code><br>
+在最后一行添加下面内容,192.168.xx.xx是你自己服务器(虚拟机)的地址</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">192.168.xx.xx	peer0.org1.example.com peer1.org1.example.com peer0.org2.example.com peer1.org2.example.com orderer.example.com</span><br></pre></td></tr></table></figure>
+<h6 id="启动网络">启动网络</h6>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">更改世界状态数据库是couchdb启动</span></span><br><span class="line"><span class="meta">#</span><span class="bash">访问方式：ip:5984/_utils</span></span><br><span class="line">cd /home/ubuntu/gopath/src/github.com/hyperledger/fabric-samples/first-network</span><br><span class="line">./byfn.sh up -s couchdb</span><br><span class="line"><span class="meta">#</span><span class="bash">启动2个org，4个peer，1个cli，4个couchdb,1个kafka</span></span><br><span class="line">docker-compose -f docker-compose-cli.yaml -f docker-compose-couch.yaml -f docker-compose-kafka.yaml start</span><br></pre></td></tr></table></figure>
+<h6 id="生成tx文件">生成tx文件</h6>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /home/ubuntu/gopath/src/github.com/hyperledger/fabric-samples/first-network</span><br><span class="line">../bin/configtxgen -profile TwoOrgsChannel -outputCreateChannelTx channel-artifacts/test.tx -channelID test</span><br></pre></td></tr></table></figure>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211215171522972.png" class="">
+<blockquote>
+<p>将<code>/opt/gopath/src/github.com/hyperledger/fabric/scripts/fabric-samples/first-network</code>目录下的<code>crypto-config</code>文件拷贝到工程的<code>resources</code>目录下<br>
+注意：其中在<code>1.4.6</code>版本<code>peerOrganization-org1(2)-users-Admin-msp-admincerts</code>目录下的文件没有，但是可以拷贝同个目录下的<code>signcerts</code>的文件</p>
+</blockquote>
+<p>将生成的<code>test.tx</code>文件拷贝到<code>idea</code>工程的<code>resources</code>目录下</p>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211215171631083.png" class="">
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211215171838437.png" class="">
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211215171950996.png" class="">
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211215171914106.png" class="">
+<p>IDEA乱码配置，之前的项目这样配置的，你可以按照这样配置下，不然可能乱码</p>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211215162603128.png" class="">　
+<p>idea打开sdkdemo</p>
+<p><strong>注意:java 的jdk一定要是64位</strong></p>
+<p>路径是双斜杠\\</p>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211215162915220.png" class="">
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211215163124434.png" class=""> 
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211215164437760.png" class="">
+<p>运行sdkdemo项目</p>
+<p>在浏览器中调用sdkdemo</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#在浏览器中依次访问下面的网址，不要重复执行</span><br><span class="line">#创建通道</span><br><span class="line"><span class="function">http://<span class="title">localhost</span>:8081/<span class="title">sdk</span>/<span class="title">createChannel</span></span></span><br><span class="line"><span class="function"><span class="title">http</span>://<span class="title">localhost</span>:8081/<span class="title">sdk</span>/<span class="title">createChannel2</span></span></span><br><span class="line"><span class="function">#安装智能合约</span></span><br><span class="line"><span class="function"><span class="title">http</span>://<span class="title">localhost</span>:8081/<span class="title">sdk</span>/<span class="title">chainCodeInstall</span></span></span><br><span class="line"><span class="function"><span class="title">http</span>://<span class="title">localhost</span>:8081/<span class="title">sdk</span>/<span class="title">chainCodeInstall2</span></span></span><br><span class="line"><span class="function">#实例化智能合约,比较慢</span></span><br><span class="line"><span class="function"><span class="title">http</span>://<span class="title">localhost</span>:8081/<span class="title">sdk</span>/<span class="title">init</span></span></span><br></pre></td></tr></table></figure>
+<p>三种用户，可以去表里面找对应的账户和密码</p>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211215175716453.png" class=""> 
+</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/" title="头像"><img class="post-copyright__author_img_back" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" title="头像" alt="头像"><img class="post-copyright__author_img_front" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" title="头像" alt="头像"></a><div class="post-copyright__author_name">Zexin Wang</div><div class="post-copyright__author_desc"></div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="http://example.com/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('http://example.com/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/')">区块链溯源系统环境部署</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"><div class="post-reward" onclick="anzhiyu.addRewardMask()"><div class="reward-button button--animated" title="赞赏作者"><i class="anzhiyufont anzhiyu-icon-hand-heart-fill"></i>打赏作者</div><div class="reward-main"><div class="reward-all"><span class="reward-title">感谢你赐予我前进的力量</span><ul class="reward-group"><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul><a class="reward-main-btn" href="/about/#about-reward" target="_blank"><div class="reward-text">赞赏者名单</div><div class="reward-dec">因为你们的支持让我意识到写文章的价值🙏</div></a></div></div></div><div id="quit-box" onclick="anzhiyu.removeRewardMask()" style="display: none"></div></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="http://example.com/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=区块链溯源系统环境部署&amp;url=http://example.com/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/&amp;pic=" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><script>function copyCurrentPageUrl() {
+  var currentPageUrl = window.location.href;
+  var input = document.createElement("input");
+  input.setAttribute("value", currentPageUrl);
+  document.body.appendChild(input);
+  input.select();
+  input.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  document.body.removeChild(input);
+}</script><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="copyCurrentPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Hexo</a>！</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"></div></div></div><div class="post_share"><div class="social-share" data-image="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/03/06/ACM_%E6%95%B0%E8%AE%BA/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">ACM 数论部分</div></div></a></div><div class="next-post pull-right"><a href="/2022/07/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">如何使用goblintownNFT智能合约发布属于自己的NFT</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info-avatar"><img class="avatar-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__description"></div></div></div><div class="card-widget anzhiyu-right-widget" id="card-wechat" onclick="null"><div id="flip-wrapper"><div id="flip-content"><div class="face" style="background: url(https://bu.dusays.com/2023/01/13/63c02edf44033.png) center center / 100% no-repeat"></div><div class="back face" style="background: url(https://bu.dusays.com/2023/05/13/645fa415e8694.png) center center / 100% no-repeat"></div></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">软件安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">Hyperledger Fabric1.4.0 环境配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E6%94%BE%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E7%AB%AF%E5%8F%A3"><span class="toc-number">2.1.</span> <span class="toc-text">开放服务器的端口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8finalShell%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">2.2.</span> <span class="toc-text">使用finalShell连接服务器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Fabric-v1-4-0%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2-%E5%85%A8%E7%A8%8B%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4%E5%B0%B1ok"><span class="toc-number">2.3.</span> <span class="toc-text">Fabric v1.4.0安装部署  全程复制粘贴就ok</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%89%8D%E6%9C%9F%E5%87%86%E5%A4%87"><span class="toc-number">2.3.1.</span> <span class="toc-text">一、前期准备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81Fabric%E5%AE%89%E8%A3%85"><span class="toc-number">2.3.2.</span> <span class="toc-text">二、Fabric安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bootstrap-sh%E8%84%9A%E6%9C%AC%E6%88%90%E5%8A%9F%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6%EF%BC%8C%E4%BB%A5%E4%B8%8B%E4%B8%8D%E9%9C%80%E8%A6%81%E6%93%8D%E4%BD%9C-%E4%B8%8D%E9%9C%80%E8%A6%81%E6%93%8D%E4%BD%9C"><span class="toc-number">2.3.3.</span> <span class="toc-text">bootstrap.sh脚本成功下载文件，以下不需要操作,不需要操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E8%BF%90%E8%A1%8CBuild-your-first-network%E6%A0%B7%E4%BE%8B%E6%9D%A5%E8%BF%9B%E8%A1%8C%E6%B5%8B%E8%AF%95"><span class="toc-number">2.3.4.</span> <span class="toc-text">通过运行Build your first network样例来进行测试</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">项目运行</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E5%90%8E%E7%AB%AF%E9%A1%B9%E7%9B%AE"><span class="toc-number">3.1.</span> <span class="toc-text">运行后端项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E5%89%8D%E7%AB%AF%E9%A1%B9%E7%9B%AE"><span class="toc-number">3.2.</span> <span class="toc-text">运行前端项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E5%8C%BA%E5%9D%97%E9%93%BEsdk"><span class="toc-number">3.3.</span> <span class="toc-text">运行区块链sdk</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">3.3.1.</span> <span class="toc-text">准备工作</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%9F%9F%E5%90%8D%E6%98%A0%E5%B0%84"><span class="toc-number">3.3.1.0.0.1.</span> <span class="toc-text">域名映射</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E7%BD%91%E7%BB%9C"><span class="toc-number">3.3.1.0.0.2.</span> <span class="toc-text">启动网络</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E7%94%9F%E6%88%90tx%E6%96%87%E4%BB%B6"><span class="toc-number">3.3.1.0.0.3.</span> <span class="toc-text">生成tx文件</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/24/Hot100-Day1/" title="无题">无题</a><time datetime="2024-09-24T14:37:49.877Z" title="发表于 2024-09-24 22:37:49">2024-09-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/06/02/Rust-Warp%E5%A4%84%E7%90%86HTTP%E8%AF%B7%E6%B1%82/" title="Rust Warp处理HTTP请求">Rust Warp处理HTTP请求</a><time datetime="2024-06-02T02:57:36.000Z" title="发表于 2024-06-02 10:57:36">2024-06-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/06/02/HTTP%E8%AF%B7%E6%B1%82%E5%86%85%E5%AE%B9/" title="HTTP请求内容">HTTP请求内容</a><time datetime="2024-06-02T02:23:51.000Z" title="发表于 2024-06-02 10:23:51">2024-06-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/05/11/Rust%E5%8D%95%E9%93%BE%E8%A1%A8/" title="Rust单链表">Rust单链表</a><time datetime="2024-05-11T14:40:42.000Z" title="发表于 2024-05-11 22:40:42">2024-05-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" title="以太坊测试网络Rinkeby使用教程">以太坊测试网络Rinkeby使用教程</a><time datetime="2022-07-10T08:23:22.000Z" title="发表于 2022-07-10 16:23:22">2022-07-10</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2020 - 2024 By <a class="footer-bar-link" href="/" title="Zexin Wang" target="_blank">Zexin Wang</a></div></div><div id="footer-type-tips"></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu" title="主题">主题</a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/" title="tag"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/" title="category"><div class="headline">分类</div><div class="length-num">0</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="显示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>显示模式</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://blog.anheyu.com/" title="博客"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="博客"/><span class="back-menu-item-text">博客</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://image.anheyu.com/" title="安知鱼图床"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://image.anheyu.com/favicon.ico" alt="安知鱼图床"/><span class="back-menu-item-text">安知鱼图床</span></a></div></div></div><span class="sidebar-menu-item-title">标签</span></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="8152976493" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random" volume="0.7"></meting-js></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@17.8.5/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script>// 消除控制台打印
+var HoldLog = console.log;
+console.log = function () {};
+let now1 = new Date();
+queueMicrotask(() => {
+  const Log = function () {
+    HoldLog.apply(console, arguments);
+  }; //在恢复前输出日志
+  const grt = new Date("04/01/2021 00:00:00"); //此处修改你的建站时间或者网站上线时间
+  now1.setTime(now1.getTime() + 250);
+  const days = (now1 - grt) / 1000 / 60 / 60 / 24;
+  const dnum = Math.floor(days);
+  const ascll = [
+    `欢迎使用安知鱼!`,
+    `生活明朗, 万物可爱`,
+    `
+        
+       █████╗ ███╗   ██╗███████╗██╗  ██╗██╗██╗   ██╗██╗   ██╗
+      ██╔══██╗████╗  ██║╚══███╔╝██║  ██║██║╚██╗ ██╔╝██║   ██║
+      ███████║██╔██╗ ██║  ███╔╝ ███████║██║ ╚████╔╝ ██║   ██║
+      ██╔══██║██║╚██╗██║ ███╔╝  ██╔══██║██║  ╚██╔╝  ██║   ██║
+      ██║  ██║██║ ╚████║███████╗██║  ██║██║   ██║   ╚██████╔╝
+      ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝    ╚═════╝
+        
+        `,
+    "已上线",
+    dnum,
+    "天",
+    "©2020 By 安知鱼 V1.6.12",
+  ];
+  const ascll2 = [`NCC2-036`, `调用前置摄像头拍照成功，识别为【小笨蛋】.`, `Photo captured: `, `🤪`];
+
+  setTimeout(
+    Log.bind(
+      console,
+      `\n%c${ascll[0]} %c ${ascll[1]} %c ${ascll[2]} %c${ascll[3]}%c ${ascll[4]}%c ${ascll[5]}\n\n%c ${ascll[6]}\n`,
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      ""
+    )
+  );
+  setTimeout(
+    Log.bind(
+      console,
+      `%c ${ascll2[0]} %c ${ascll2[1]} %c \n${ascll2[2]} %c\n${ascll2[3]}\n`,
+      "color:white; background-color:#4fd953",
+      "",
+      "",
+      'background:url("https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/tinggge.gif") no-repeat;font-size:450%'
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c WELCOME %c 你好，小笨蛋.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(
+      console,
+      "%c ⚡ Powered by 安知鱼 %c 你正在访问 Zexin Wang 的博客.",
+      "color:white; background-color:#f0ad4e",
+      ""
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c W23-12 %c 你已打开控制台.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(console, "%c S013-782 %c 你现在正处于监控中.", "color:white; background-color:#d9534f", "")
+  );
+});</script><script async src="/anzhiyu/random.js"></script><div class="js-pjax"><input type="hidden" name="page-type" id="page-type" value="post"></div><script>var visitorMail = "";
+</script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>
