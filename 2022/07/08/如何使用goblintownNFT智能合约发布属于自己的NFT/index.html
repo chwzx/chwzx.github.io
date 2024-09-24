@@ -1,255 +1,45 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
+extends includes/layout.pug
 
-  
-  <title>如何使用goblintownNFT智能合约发布属于自己的NFT | Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、安装并注册MateMask钱包账户 1、安装MetaMask MetaMask属于浏览器插件应用，官网：The crypto wallet for Defi, Web3 Dapps and NFTs | MetaMask，进入后下载安装即可。 2、注册 接下来就是简单的注册过程，此处需要保存好自己的助记词。按照我的理解，助记词是为了让你在忘记MetaMask登录密码时能够找回自己的钱包。Met">
-<meta property="og:type" content="article">
-<meta property="og:title" content="如何使用goblintownNFT智能合约发布属于自己的NFT">
-<meta property="og:url" content="http://example.com/2022/07/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="一、安装并注册MateMask钱包账户 1、安装MetaMask MetaMask属于浏览器插件应用，官网：The crypto wallet for Defi, Web3 Dapps and NFTs | MetaMask，进入后下载安装即可。 2、注册 接下来就是简单的注册过程，此处需要保存好自己的助记词。按照我的理解，助记词是为了让你在忘记MetaMask登录密码时能够找回自己的钱包。Met">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2022/07/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT/1.png">
-<meta property="og:image" content="http://example.com/2022/07/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT/2.png">
-<meta property="og:image" content="http://example.com/2022/07/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT/3.png">
-<meta property="og:image" content="http://example.com/2022/07/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT/4.png">
-<meta property="og:image" content="http://example.com/2022/07/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT/5.png">
-<meta property="og:image" content="d:%5Cwzx%5CDocuments%5Cblog%5Csource_posts%5C%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT%5C6.png">
-<meta property="og:image" content="http://example.com/2022/07/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT/7.png">
-<meta property="og:image" content="http://example.com/2022/07/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT/10.png">
-<meta property="og:image" content="http://example.com/2022/07/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT/9.png">
-<meta property="og:image" content="http://example.com/2022/07/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT/8.png">
-<meta property="article:published_time" content="2022-07-08T14:35:29.166Z">
-<meta property="article:modified_time" content="2022-07-10T08:41:50.455Z">
-<meta property="article:author" content="Zexin Wang">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2022/07/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT/1.png">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.ico">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+block content
+  #post
+    if top_img === false || page.bilibili_bg
+      include includes/header/post-info.pug
+    if theme.post_head_ai_description
+      include includes/anzhiyu/ai-info.pug
+    - let url = page.copyright_url || page.permalink
+    article#article-container.post-content(itemscope itemtype=url_for(url))
+      header
+        if (theme.post_meta.post.categories && page.categories && page.categories.data.length > 0)
+          each item, index in page.categories.data
+            a(href=url_for(item.path) itemprop="url").post-meta-categories #[=item.name]
+        if (theme.post_meta.page.tags)
+          each item, index in page.tags.data
+            a(href=url_for(item.path) tabindex="-1" itemprop="url")=item.name
+        h1#CrawlerTitle(itemprop="name headline")= page.title || _p('no_title')
+        - let author = page.copyright_author || config.author
+        span(itemprop="author" itemscope itemtype="http://schema.org/Person")=author
+        if (theme.post_meta.post.date_type)
+          if (theme.post_meta.post.date_type === 'both')
+            time(itemprop="dateCreated datePublished" datetime=date_xml(page.date) title=_p('post.created') + ' ' + full_date(page.date))=date(page.date, config.date_format)
+            time(itemprop="dateCreated datePublished" datetime=date_xml(page.updated) title=_p('post.updated') + ' ' + full_date(page.updated))=date(page.updated, config.date_format)
+          else
+            - let data_type_update = theme.post_meta.post.date_type === 'updated'
+            - let date_type = data_type_update ? 'updated' : 'date'
+            time(itemprop="dateCreated datePublished" datetime=date_xml(page[date_type]) title=date_title + ' ' + full_date(page[date_type]))=date(page[date_type], config.date_format)
+      !=page.content
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+    include includes/post/post-copyright.pug
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
+    //- ad
+    if theme.ad && theme.ad.post
+      .ads-wrap!=theme.ad.post
+
+    if theme.post_pagination
+      include includes/pagination.pug
+    if theme.related_post && theme.related_post.enable
+      != related_posts(page,site.posts)
+
+    if page.comments !== false && theme.comments && theme.comments.use
+      - var commentsJsLoad = true
+      !=partial('includes/third-party/comments/index', {}, {cache: true})
       
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">[object Object]</a>
-        </h2>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-如何使用goblintownNFT智能合约发布属于自己的NFT" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/07/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT/" class="article-date">
-  <time datetime="2022-07-08T14:35:29.166Z" itemprop="datePublished">2022-07-08</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      如何使用goblintownNFT智能合约发布属于自己的NFT
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="一、安装并注册MateMask钱包账户">一、安装并注册MateMask钱包账户</h3>
-<p>1、安装MetaMask</p>
-<p>MetaMask属于浏览器插件应用，官网：<a target="_blank" rel="noopener" href="https://metamask.io/">The crypto wallet for Defi, Web3 Dapps and NFTs | MetaMask</a>，进入后下载安装即可。</p>
-<p>2、注册</p>
-<p>接下来就是简单的注册过程，此处需要保存好自己的助记词。按照我的理解，助记词是为了让你在忘记MetaMask登录密码时能够找回自己的钱包。MetaMask钱包能够注册多个账户。</p>
-<h3 id="二、切换至Rinkeby测试网络">二、切换至Rinkeby测试网络</h3>
-<p>此处参考我的另一篇博客<a target="_blank" rel="noopener" href="http://localhost:4000/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">《Rinkeby以太坊测试网络部署》</a></p>
-<h3 id="三、goblintownNFT合约的部署">三、goblintownNFT合约的部署</h3>
-<p>1、进入<a target="_blank" rel="noopener" href="https://etherscan.io/address/0xbce3781ae7ca1a5e050bd9c4c77369867ebc307e#code">goblintown</a>将该项目的智能合约copy到在线solidity编辑网站<a target="_blank" rel="noopener" href="https://remix.ethereum.org/">Remix</a></p>
-<img src="/2022/07/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT/1.png" class="">
-<p>2、编译并部署到以太坊测试网络Rinkeby中</p>
-<img src="/2022/07/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT/2.png" class="">
-<p>最左侧红框中没有出现红色就说明智能合约语法不存在错误。</p>
-<img src="/2022/07/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT/3.png" class="">
-<p>不出意外的话，到这里合约就已经部署完成了。5号红框那里有合约在以太坊上的地址，我们可以到Etherscan中查看这个地址，包括后续的一些合约操作，交易记录等都会在上面显示。同时，我们可以看到合约中的函数，如下图所示：</p>
-<img src="/2022/07/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT/4.png" class="">
-<h3 id="四、将我们的NFT-Meta-json文件放置到IPFS上">四、将我们的NFT Meta_json文件放置到IPFS上</h3>
-<p>IPFS我使用的是 <a target="_blank" rel="noopener" href="https://app.pinata.cloud/">Pinata</a> ，它好像有一个免费的1G存储容量。不过也可以自己搭建IPFS服务器，具体可参考我的另一篇博客<a target="_blank" rel="noopener" href="https://chwzx.github.io/2022/07/08/%E5%A6%82%E4%BD%95%E5%9C%A8Linux%E4%B8%8A%E9%83%A8%E7%BD%B2IPFS/">《如何在Linux上部署IPFS》</a>。NFT的JSON格式如下：</p>
-<img src="/2022/07/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT/5.png" class="">
-<p>我们自己NFT的JSON文件放在一个文件夹里上传到IPFS服务器上，注意JSON文件的<strong>文件名</strong>和<strong>后缀</strong>。例如：</p>
-<p><img src="D:%5Cwzx%5CDocuments%5Cblog%5Csource_posts%5C%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT%5C6.png" alt=""></p>
-<p>上传完成后会显示下面界面，我们最终需要的就是该文件的<strong>CID</strong>。</p>
-<img src="/2022/07/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT/7.png" class="">
-<h3 id="五、mint-NFT">五、mint NFT</h3>
-<img src="/2022/07/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT/10.png" class="">
-<p>按照顺序依次执行以上步骤，我们就可以得到我们自己的NFT啦~</p>
-<img src="/2022/07/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT/9.png" class="">
-<p>首先，我在这里解释一下tokenid，我的理解是tokenid = num(NFT) - 1，例如你已经有10个NFT，那么tokenid = 9。在刚开始部署智能合约的时候 tokenid = 0，每次mint NFT的时候，会执行智能合约中的totalSupply函数来获得当前num(NFT)。</p>
-<p>opensea通过获取ipfs://CID/<strong>string</strong>文件的方式来展示NFT（因为存在放ipfs上的资源可以通过URL直接在浏览器上访问到，具体的URL格式如：<a target="_blank" rel="noopener" href="https://ipfs.io/ipfs/QmfPoHvSMMJ8V5XtWGSbWUqAMy6vkNyH7P8aw3uc2134gY/0">https://ipfs.io/ipfs/QmfPoHvSMMJ8V5XtWGSbWUqAMy6vkNyH7P8aw3uc2134gY/0</a>  ，服务器在国外，ipfs.io这个域名可能会访问不到，更换一个可用的域名 <a target="_blank" rel="noopener" href="https://ipfs.github.io/public-gateway-checker/">IPFS公共网关</a>  即可），在该智能合约中<strong>tokenid = 地址中的string</strong>，这样就是为什么我们需要把JSON文件的后缀去除掉。上面图片中名称是3的NFT是空图，是因为该图片在IPFS服务器中的文件格式为3.json，这时候代码opensea是识别不出来的，具体原因如下图源码可知。</p>
-<img src="/2022/07/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT/8.png" class="">
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/07/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT/" data-id="cm1gjw2vw00097wvebeigbqpa" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2022/07/08/%E5%A6%82%E4%BD%95%E5%9C%A8Linux%E4%B8%8A%E9%83%A8%E7%BD%B2IPFS/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          如何在Linux云服务器上部署IPFS
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">区块链溯源系统环境部署</div>
-    </a>
-  
-</nav>
-
-  
-</article>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">九月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">六月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">五月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">一月 2022</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2024/09/24/Hot100-Day1/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2024/06/02/Rust-Warp%E5%A4%84%E7%90%86HTTP%E8%AF%B7%E6%B1%82/">Rust Warp处理HTTP请求</a>
-          </li>
-        
-          <li>
-            <a href="/2024/06/02/HTTP%E8%AF%B7%E6%B1%82%E5%86%85%E5%AE%B9/">HTTP请求内容</a>
-          </li>
-        
-          <li>
-            <a href="/2024/05/11/Rust%E5%8D%95%E9%93%BE%E8%A1%A8/">Rust单链表</a>
-          </li>
-        
-          <li>
-            <a href="/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">以太坊测试网络Rinkeby使用教程</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2024 Zexin Wang<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-  </div>
-</body>
-</html>

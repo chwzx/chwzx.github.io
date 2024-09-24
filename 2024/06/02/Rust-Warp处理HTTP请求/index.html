@@ -1,232 +1,45 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
+extends includes/layout.pug
 
-  
-  <title>Rust Warp处理HTTP请求 | Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在 Rust 的 warp 框架中，处理 HTTP 方法（GET、PUT、POST、DELETE）通常涉及定义路由和使用相应的 warp 函数来匹配请求路径和方法。以下是每种方法的详细示例，包括如何获取请求参数、请求体和响应。 GET 请求示例 GET 请求通常用于请求数据。 1234567891011121314151617181920212223use warp::Filter;&#x2F;&#x2F; 简单的">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Rust Warp处理HTTP请求">
-<meta property="og:url" content="http://example.com/2024/06/02/Rust-Warp%E5%A4%84%E7%90%86HTTP%E8%AF%B7%E6%B1%82/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="在 Rust 的 warp 框架中，处理 HTTP 方法（GET、PUT、POST、DELETE）通常涉及定义路由和使用相应的 warp 函数来匹配请求路径和方法。以下是每种方法的详细示例，包括如何获取请求参数、请求体和响应。 GET 请求示例 GET 请求通常用于请求数据。 1234567891011121314151617181920212223use warp::Filter;&#x2F;&#x2F; 简单的">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-06-02T02:57:36.000Z">
-<meta property="article:modified_time" content="2024-06-02T04:35:19.995Z">
-<meta property="article:author" content="Zexin Wang">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.ico">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+block content
+  #post
+    if top_img === false || page.bilibili_bg
+      include includes/header/post-info.pug
+    if theme.post_head_ai_description
+      include includes/anzhiyu/ai-info.pug
+    - let url = page.copyright_url || page.permalink
+    article#article-container.post-content(itemscope itemtype=url_for(url))
+      header
+        if (theme.post_meta.post.categories && page.categories && page.categories.data.length > 0)
+          each item, index in page.categories.data
+            a(href=url_for(item.path) itemprop="url").post-meta-categories #[=item.name]
+        if (theme.post_meta.page.tags)
+          each item, index in page.tags.data
+            a(href=url_for(item.path) tabindex="-1" itemprop="url")=item.name
+        h1#CrawlerTitle(itemprop="name headline")= page.title || _p('no_title')
+        - let author = page.copyright_author || config.author
+        span(itemprop="author" itemscope itemtype="http://schema.org/Person")=author
+        if (theme.post_meta.post.date_type)
+          if (theme.post_meta.post.date_type === 'both')
+            time(itemprop="dateCreated datePublished" datetime=date_xml(page.date) title=_p('post.created') + ' ' + full_date(page.date))=date(page.date, config.date_format)
+            time(itemprop="dateCreated datePublished" datetime=date_xml(page.updated) title=_p('post.updated') + ' ' + full_date(page.updated))=date(page.updated, config.date_format)
+          else
+            - let data_type_update = theme.post_meta.post.date_type === 'updated'
+            - let date_type = data_type_update ? 'updated' : 'date'
+            time(itemprop="dateCreated datePublished" datetime=date_xml(page[date_type]) title=date_title + ' ' + full_date(page[date_type]))=date(page[date_type], config.date_format)
+      !=page.content
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+    include includes/post/post-copyright.pug
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
+    //- ad
+    if theme.ad && theme.ad.post
+      .ads-wrap!=theme.ad.post
+
+    if theme.post_pagination
+      include includes/pagination.pug
+    if theme.related_post && theme.related_post.enable
+      != related_posts(page,site.posts)
+
+    if page.comments !== false && theme.comments && theme.comments.use
+      - var commentsJsLoad = true
+      !=partial('includes/third-party/comments/index', {}, {cache: true})
       
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">[object Object]</a>
-        </h2>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-Rust-Warp处理HTTP请求" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2024/06/02/Rust-Warp%E5%A4%84%E7%90%86HTTP%E8%AF%B7%E6%B1%82/" class="article-date">
-  <time datetime="2024-06-02T02:57:36.000Z" itemprop="datePublished">2024-06-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Rust Warp处理HTTP请求
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在 Rust 的 <code>warp</code> 框架中，处理 HTTP 方法（GET、PUT、POST、DELETE）通常涉及定义路由和使用相应的 <code>warp</code> 函数来匹配请求路径和方法。以下是每种方法的详细示例，包括如何获取请求参数、请求体和响应。</p>
-<h3 id="GET-请求示例">GET 请求示例</h3>
-<p>GET 请求通常用于请求数据。</p>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> warp::Filter;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 简单的 GET 请求，返回 &quot;Hello, World!&quot;</span></span><br><span class="line"><span class="keyword">let</span> get_hello = warp::get()</span><br><span class="line">    .and(warp::path(<span class="string">&quot;hello&quot;</span>))</span><br><span class="line">    .map(|| <span class="string">&quot;Hello, World!&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// GET 请求，带查询参数</span></span><br><span class="line"><span class="keyword">let</span> get_query = warp::get()</span><br><span class="line">    .and(warp::path(<span class="string">&quot;query&quot;</span>))</span><br><span class="line">    .and(warp::query::&lt;Query&gt;()) <span class="comment">// 自定义结构体来解析查询参数</span></span><br><span class="line">    .map(|query: Query| &#123;</span><br><span class="line">        <span class="built_in">format!</span>(<span class="string">&quot;Hello, &#123;&#125;!&quot;</span>, query.name)</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义查询参数结构体</span></span><br><span class="line"><span class="meta">#[derive(serde::Deserialize)]</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Query</span></span> &#123;</span><br><span class="line">    name: <span class="built_in">String</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 组合路由</span></span><br><span class="line"><span class="keyword">let</span> get_routes = get_hello.or(get_query);</span><br></pre></td></tr></table></figure>
-<h3 id="POST-请求示例">POST 请求示例</h3>
-<p>POST 请求通常用于提交数据。</p>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> warp::Filter;</span><br><span class="line"><span class="keyword">use</span> serde::Deserialize;</span><br><span class="line"></span><br><span class="line"><span class="comment">// POST 请求，带 JSON 请求体</span></span><br><span class="line"><span class="keyword">let</span> post_json = warp::post()</span><br><span class="line">    .and(warp::path(<span class="string">&quot;json&quot;</span>))</span><br><span class="line">    .and(warp::body::json())</span><br><span class="line">    .map(|body: MyRequestBody| &#123;</span><br><span class="line">        <span class="built_in">format!</span>(<span class="string">&quot;Received: name = &#123;&#125;, age = &#123;&#125;&quot;</span>, body.name, body.age)</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义请求体结构体</span></span><br><span class="line"><span class="meta">#[derive(Deserialize)]</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">MyRequestBody</span></span> &#123;</span><br><span class="line">    name: <span class="built_in">String</span>,</span><br><span class="line">    age: <span class="built_in">u32</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// POST 请求，带表单请求体</span></span><br><span class="line"><span class="keyword">let</span> post_form = warp::post()</span><br><span class="line">    .and(warp::path(<span class="string">&quot;form&quot;</span>))</span><br><span class="line">    .and(warp::body::form())</span><br><span class="line">    .map(|name: <span class="built_in">String</span>, age: <span class="built_in">u32</span>| &#123; <span class="comment">// 从表单中解析数据</span></span><br><span class="line">        <span class="built_in">format!</span>(<span class="string">&quot;Received: name = &#123;&#125;, age = &#123;&#125;&quot;</span>, name, age)</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 组合路由</span></span><br><span class="line"><span class="keyword">let</span> post_routes = post_json.or(post_form);</span><br></pre></td></tr></table></figure>
-<h3 id="PUT-请求示例">PUT 请求示例</h3>
-<p>PUT 请求通常用于更新资源。</p>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> warp::Filter;</span><br><span class="line"><span class="keyword">use</span> serde::Deserialize;</span><br><span class="line"></span><br><span class="line"><span class="comment">// PUT 请求，带 JSON 请求体</span></span><br><span class="line"><span class="keyword">let</span> put_json = warp::put()</span><br><span class="line">    .and(warp::path(<span class="string">&quot;update&quot;</span>))</span><br><span class="line">    .and(warp::body::json())</span><br><span class="line">    .map(|body: MyRequestBody| &#123;</span><br><span class="line">        <span class="built_in">format!</span>(<span class="string">&quot;Updated: name = &#123;&#125;, age = &#123;&#125;&quot;</span>, body.name, body.age)</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// PUT 请求，带表单请求体</span></span><br><span class="line"><span class="keyword">let</span> put_form = warp::put()</span><br><span class="line">    .and(warp::path(<span class="string">&quot;update&quot;</span>))</span><br><span class="line">    .and(warp::body::form())</span><br><span class="line">    .map(|name: <span class="built_in">String</span>, age: <span class="built_in">u32</span>| &#123;</span><br><span class="line">        <span class="built_in">format!</span>(<span class="string">&quot;Updated: name = &#123;&#125;, age = &#123;&#125;&quot;</span>, name, age)</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 组合路由</span></span><br><span class="line"><span class="keyword">let</span> put_routes = put_json.or(put_form);</span><br></pre></td></tr></table></figure>
-<h3 id="DELETE-请求示例">DELETE 请求示例</h3>
-<p>DELETE 请求通常用于删除资源。</p>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> warp::Filter;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 简单的 DELETE 请求</span></span><br><span class="line"><span class="keyword">let</span> delete_simple = warp::delete()</span><br><span class="line">    .and(warp::path(<span class="string">&quot;delete&quot;</span>))</span><br><span class="line">    .map(|| <span class="string">&quot;Resource deleted&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// DELETE 请求，带路径参数</span></span><br><span class="line"><span class="keyword">let</span> delete_with_param = warp::delete()</span><br><span class="line">    .and(warp::path!(<span class="string">&quot;delete&quot;</span> / <span class="built_in">String</span>))</span><br><span class="line">    .map(|id: <span class="built_in">String</span>| &#123;</span><br><span class="line">        <span class="built_in">format!</span>(<span class="string">&quot;Resource with id &#123;&#125; deleted&quot;</span>, id)</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 组合路由</span></span><br><span class="line"><span class="keyword">let</span> delete_routes = delete_simple.or(delete_with_param);</span><br></pre></td></tr></table></figure>
-<h3 id="组合所有路由">组合所有路由</h3>
-<p>最后，你可以将所有路由组合在一起，并启动服务器。</p>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> warp::Filter;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 组合所有路由</span></span><br><span class="line"><span class="keyword">let</span> routes = get_routes.or(post_routes).or(put_routes).or(delete_routes);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 启动服务器</span></span><br><span class="line">warp::serve(routes)</span><br><span class="line">    .run(([<span class="number">127</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>], <span class="number">3030</span>)) <span class="comment">// 监听 localhost 的 3030 端口</span></span><br><span class="line">    .<span class="keyword">await</span>;</span><br></pre></td></tr></table></figure>
-<p>请注意，示例中的 <code>MyRequestBody</code> 结构体需要你根据实际请求体来定义，并且要派生 <code>serde::Deserialize</code> 特性以便 <code>warp</code> 可以自动反序列化 JSON 请求体。</p>
-<p>这些示例展示了如何在 <code>warp</code> 中处理不同的 HTTP 方法，并提供了基本的路由和请求处理逻辑。你可以根据需要扩展这些示例，添加认证、日志记录、错误处理等其他功能。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/06/02/Rust-Warp%E5%A4%84%E7%90%86HTTP%E8%AF%B7%E6%B1%82/" data-id="cm1gjw2vs00057wve96yyh7ni" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2024/09/24/Hot100-Day1/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2024/06/02/HTTP%E8%AF%B7%E6%B1%82%E5%86%85%E5%AE%B9/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">HTTP请求内容</div>
-    </a>
-  
-</nav>
-
-  
-</article>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">九月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">六月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">五月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">一月 2022</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2024/09/24/Hot100-Day1/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2024/06/02/Rust-Warp%E5%A4%84%E7%90%86HTTP%E8%AF%B7%E6%B1%82/">Rust Warp处理HTTP请求</a>
-          </li>
-        
-          <li>
-            <a href="/2024/06/02/HTTP%E8%AF%B7%E6%B1%82%E5%86%85%E5%AE%B9/">HTTP请求内容</a>
-          </li>
-        
-          <li>
-            <a href="/2024/05/11/Rust%E5%8D%95%E9%93%BE%E8%A1%A8/">Rust单链表</a>
-          </li>
-        
-          <li>
-            <a href="/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">以太坊测试网络Rinkeby使用教程</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2024 Zexin Wang<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-  </div>
-</body>
-</html>

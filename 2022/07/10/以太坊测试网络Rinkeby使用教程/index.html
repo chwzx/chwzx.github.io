@@ -1,267 +1,45 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
+extends includes/layout.pug
 
-  
-  <title>以太坊测试网络Rinkeby使用教程 | Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="出于学习和测试的目的，以太坊官方推出了一些测试网络，使用了与主网络不同的创世区块，测试网中的代币是没有价值的。以太坊公开的测试网络共有4个，目前仍在运行的有4个，分别为Goerli、Ropsten、Kovan、Rinkeby。  一、Rinkeby ​	Rinkeby 是开发人员目前常用的测试网络，使用PoA共识机制，访问地址: https:&#x2F;&#x2F;www.rinkeby.io&#x2F; ​	本文从以下几方面">
-<meta property="og:type" content="article">
-<meta property="og:title" content="以太坊测试网络Rinkeby使用教程">
-<meta property="og:url" content="http://example.com/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="出于学习和测试的目的，以太坊官方推出了一些测试网络，使用了与主网络不同的创世区块，测试网中的代币是没有价值的。以太坊公开的测试网络共有4个，目前仍在运行的有4个，分别为Goerli、Ropsten、Kovan、Rinkeby。  一、Rinkeby ​	Rinkeby 是开发人员目前常用的测试网络，使用PoA共识机制，访问地址: https:&#x2F;&#x2F;www.rinkeby.io&#x2F; ​	本文从以下几方面">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20220710154934533.png">
-<meta property="og:image" content="http://example.com/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20220710155752391.png">
-<meta property="og:image" content="http://example.com/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20220710160112111.png">
-<meta property="og:image" content="http://example.com/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20220710160258929.png">
-<meta property="og:image" content="http://example.com/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20220710160356133.png">
-<meta property="og:image" content="http://example.com/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20220619213140683.png">
-<meta property="og:image" content="http://example.com/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20220619213306397.png">
-<meta property="og:image" content="http://example.com/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20220710162030797.png">
-<meta property="og:image" content="http://example.com/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20220710162051195.png">
-<meta property="og:image" content="http://example.com/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20220710162152235.png">
-<meta property="article:published_time" content="2022-07-10T08:23:22.000Z">
-<meta property="article:modified_time" content="2022-07-10T08:26:42.664Z">
-<meta property="article:author" content="Zexin Wang">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20220710154934533.png">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.ico">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+block content
+  #post
+    if top_img === false || page.bilibili_bg
+      include includes/header/post-info.pug
+    if theme.post_head_ai_description
+      include includes/anzhiyu/ai-info.pug
+    - let url = page.copyright_url || page.permalink
+    article#article-container.post-content(itemscope itemtype=url_for(url))
+      header
+        if (theme.post_meta.post.categories && page.categories && page.categories.data.length > 0)
+          each item, index in page.categories.data
+            a(href=url_for(item.path) itemprop="url").post-meta-categories #[=item.name]
+        if (theme.post_meta.page.tags)
+          each item, index in page.tags.data
+            a(href=url_for(item.path) tabindex="-1" itemprop="url")=item.name
+        h1#CrawlerTitle(itemprop="name headline")= page.title || _p('no_title')
+        - let author = page.copyright_author || config.author
+        span(itemprop="author" itemscope itemtype="http://schema.org/Person")=author
+        if (theme.post_meta.post.date_type)
+          if (theme.post_meta.post.date_type === 'both')
+            time(itemprop="dateCreated datePublished" datetime=date_xml(page.date) title=_p('post.created') + ' ' + full_date(page.date))=date(page.date, config.date_format)
+            time(itemprop="dateCreated datePublished" datetime=date_xml(page.updated) title=_p('post.updated') + ' ' + full_date(page.updated))=date(page.updated, config.date_format)
+          else
+            - let data_type_update = theme.post_meta.post.date_type === 'updated'
+            - let date_type = data_type_update ? 'updated' : 'date'
+            time(itemprop="dateCreated datePublished" datetime=date_xml(page[date_type]) title=date_title + ' ' + full_date(page[date_type]))=date(page[date_type], config.date_format)
+      !=page.content
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+    include includes/post/post-copyright.pug
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
+    //- ad
+    if theme.ad && theme.ad.post
+      .ads-wrap!=theme.ad.post
+
+    if theme.post_pagination
+      include includes/pagination.pug
+    if theme.related_post && theme.related_post.enable
+      != related_posts(page,site.posts)
+
+    if page.comments !== false && theme.comments && theme.comments.use
+      - var commentsJsLoad = true
+      !=partial('includes/third-party/comments/index', {}, {cache: true})
       
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">[object Object]</a>
-        </h2>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-以太坊测试网络Rinkeby使用教程" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" class="article-date">
-  <time datetime="2022-07-10T08:23:22.000Z" itemprop="datePublished">2022-07-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      以太坊测试网络Rinkeby使用教程
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>出于学习和测试的目的，以太坊官方推出了一些测试网络，使用了与主网络不同的创世区块，测试网中的代币是没有价值的。以太坊公开的测试网络共有4个，目前仍在运行的有4个，分别为Goerli、Ropsten、Kovan、Rinkeby。</p>
-<img src="/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20220710154934533.png" class="">
-<h3 id="一、Rinkeby">一、Rinkeby</h3>
-<p>​	Rinkeby 是开发人员目前常用的测试网络，使用PoA共识机制，访问地址: <a target="_blank" rel="noopener" href="https://link.jianshu.com/?t=https%3A%2F%2Fwww.rinkeby.io%2F">https://www.rinkeby.io/</a><br>
-​	本文从以下几方面介绍Rinkeby 的基本使用方法：</p>
-<ul>
-<li>创建 Rinkeby 账户</li>
-<li>获取 Rinkeby 的以太币</li>
-<li>智能合约部署</li>
-<li>智能合约交互</li>
-</ul>
-<h3 id="二、创建-Rinkeby-账户">二、创建 Rinkeby 账户</h3>
-<p>​	首先我们需要一个钱包来管理账户，目前可选的有MetaMask、Coinbase Wallet、WalletConnect等，我比较推荐使用主流的MetaMask钱包。本篇文章的所有操作均通过MetaMask进行操作。</p>
-<p>​	1、安装MetaMask</p>
-<p>​	MetaMask属于浏览器插件应用，官网：<a target="_blank" rel="noopener" href="https://metamask.io/">The crypto wallet for Defi, Web3 Dapps and NFTs | MetaMask</a>，进入后下载安装即可。</p>
-<p>​	2、注册</p>
-<p>​	接下来就是简单的注册过程，此处需要保存好自己的助记词。按照我的理解，助记词是为了让你在忘记MetaMask登录密码时能够找回自己的钱包。MetaMask钱包能够注册多个账户。</p>
-<p>​	3、切换至Rinkeby测试网络环境</p>
-<p>​	<img src="/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20220710155752391.png" class=""></p>
-<h3 id="三、获取Rinkeby-的以太币">三、获取Rinkeby 的以太币</h3>
-<p>​	刚注册的账户是没有以太币的，想获取Rinkeby测试网络中的以太币，需要我们通过官方给出的方法去申请，这个申请Rinkeby以太币的功能被称为水龙头(Faucet)。网站地址：<a target="_blank" rel="noopener" href="https://www.rinkeby.io/#faucet">https://www.rinkeby.io/#faucet</a> （有时候水龙头服务节点会问题，无法申请到测试币，我们可以自行百度其他申请方式）</p>
-<p>​	为了确保不会出现有人滥用水龙头，无限申请Rinkeby以太币。水龙头需要借助第三方账号来确定申请者的身份和配额。目前提供的获取方法是在Twitter、FaceBook任意一个社交网络上发布一条带有钱包地址的消息，并将消息的网址粘贴到上面截图的输入框中选个获取就可以。我们以FaceBook账户为例（额，我的Twitter不知道什么原因被冻结了，无法发布帖子）。</p>
-<img src="/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20220710160112111.png" class="">
-<p>​	自行注册一个twitter或facebook账号即可，然后发一条帖子。</p>
-<img src="/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20220710160258929.png" class="">
-<p>发布的内容就是钱包地址，获取方式如下图所示。</p>
-<img src="/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20220710160356133.png" class="">
-<p>​	发送成功后，进入这条Tweet内容，然后copy以下当前推文的地址。</p>
-<img src="/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20220619213140683.png" class="">
-<p>​	将刚才复制的地址粘贴到Rinkeby Authenticated Faucet的URL输入框中，随意选择一个测试币的有效时间即可。</p>
-<img src="/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20220619213306397.png" class="">
-<p>​	稍等片刻，MetaMask上就会显示我们当前账户的余额。</p>
-<h3 id="四、智能合约部署">四、智能合约部署</h3>
-<p>​	如果使用的是MetaMask的话，你必须要有智能合约的源码，不然没有办法部署成功。如果向通过ABI和Bytecode部署的话可以使用Myetherwallet钱包。</p>
-<p>​	1、编译智能合约</p>
-<p>​	<img src="/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20220710162030797.png" class=""></p>
-<p>​	2、部署智能合约</p>
-<p>​	<img src="/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20220710162051195.png" class=""></p>
-<h3 id="六、智能合约交互">六、智能合约交互</h3>
-<p>​	当智能合约部署成功后，我们会在上图5号红框那里看到智能合约中开放的所有API，如下图所示：</p>
-<img src="/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20220710162152235.png" class="">
-<p>​	我们根据函数功能，将参数填入输入框后点击左侧函数名称即可实现智能合约交互。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" data-id="cm1gjw2vt00077wvebu42g60r" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2024/05/11/Rust%E5%8D%95%E9%93%BE%E8%A1%A8/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Rust单链表
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2022/07/08/%E5%A6%82%E4%BD%95%E5%9C%A8Linux%E4%B8%8A%E9%83%A8%E7%BD%B2IPFS/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">如何在Linux云服务器上部署IPFS</div>
-    </a>
-  
-</nav>
-
-  
-</article>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">九月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">六月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">五月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">一月 2022</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2024/09/24/Hot100-Day1/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2024/06/02/Rust-Warp%E5%A4%84%E7%90%86HTTP%E8%AF%B7%E6%B1%82/">Rust Warp处理HTTP请求</a>
-          </li>
-        
-          <li>
-            <a href="/2024/06/02/HTTP%E8%AF%B7%E6%B1%82%E5%86%85%E5%AE%B9/">HTTP请求内容</a>
-          </li>
-        
-          <li>
-            <a href="/2024/05/11/Rust%E5%8D%95%E9%93%BE%E8%A1%A8/">Rust单链表</a>
-          </li>
-        
-          <li>
-            <a href="/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">以太坊测试网络Rinkeby使用教程</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2024 Zexin Wang<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-  </div>
-</body>
-</html>
