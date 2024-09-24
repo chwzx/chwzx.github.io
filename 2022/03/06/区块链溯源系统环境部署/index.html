@@ -1,22 +1,13 @@
-
-
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=auto>
-
-
-
+<html>
 <head>
-  <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
-  <link rel="icon" href="/img/favicon.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta charset="utf-8">
   
-  <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="Zexin Wang">
-  <meta name="keywords" content="">
+
   
-    <meta name="description" content="以下教程是在win10上完成的。 软件安装 nodejs安装：https:&#x2F;&#x2F;nodejs.org&#x2F;zh-cn&#x2F;download&#x2F;   这是用来运行前端的 win键+r键 ，输入cmd,看一下npm版本，有版本就代表成功了。 12C:\Users\2407288830&gt;npm -version6.13.4   idea安装和破解：https:&#x2F;&#x2F;www.mubucm.com&#x2F;doc&#x2F;rTDU">
+  <title>区块链溯源系统环境部署 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="以下教程是在win10上完成的。 软件安装 nodejs安装：https:&#x2F;&#x2F;nodejs.org&#x2F;zh-cn&#x2F;download&#x2F;   这是用来运行前端的 win键+r键 ，输入cmd,看一下npm版本，有版本就代表成功了。 12C:\Users\2407288830&gt;npm -version6.13.4   idea安装和破解：https:&#x2F;&#x2F;www.mubucm.com&#x2F;doc&#x2F;rTDU">
 <meta property="og:type" content="article">
 <meta property="og:title" content="区块链溯源系统环境部署">
 <meta property="og:url" content="http://example.com/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/index.html">
@@ -50,219 +41,79 @@
 <meta property="article:published_time" content="2022-03-05T16:54:40.819Z">
 <meta property="article:modified_time" content="2022-07-08T14:18:42.767Z">
 <meta property="article:author" content="Zexin Wang">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image1.png">
   
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
-  <title>区块链溯源系统环境部署 - Hexo</title>
-
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
-
-
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
-
   
-    
-    
-      
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
-    
+    <link rel="icon" href="/favicon.ico">
   
-
   
-    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
+  
+<link rel="stylesheet" href="/css/style.css">
 
-
-<!-- 主题依赖的图标库，不要自行修改 -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-<!-- 自定义样式保持在最底部 -->
-
-
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
-  </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 5.4.0"></head>
 
-
 <body>
-  <header style="height: 70vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="/">
-      <strong>Fluid</strong>
-    </a>
-
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
-
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/">
-                <i class="iconfont icon-home-fill"></i>
-                首页
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/">
-                <i class="iconfont icon-archive-fill"></i>
-                归档
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/">
-                <i class="iconfont icon-category-fill"></i>
-                分类
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/">
-                <i class="iconfont icon-tags-fill"></i>
-                标签
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/">
-                <i class="iconfont icon-user-fill"></i>
-                关于
-              </a>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
-            </a>
-          </li>
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
-                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
-          </li>
-        
-      </ul>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">[object Object]</a>
+        </h2>
+      
     </div>
-  </div>
-</nav>
-
-    <div class="banner" id="banner" parallax=true
-         style="background: url('/img/default.png') no-repeat center center;
-           background-size: cover;">
-      <div class="full-bg-img">
-        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="区块链溯源系统环境部署">
-              
-            </span>
-
-            
-              <div class="mt-3">
-  
-  
-    <span class="post-meta">
-      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-03-06 00:54" pubdate>
-        2022年3月6日 凌晨
-      </time>
-    </span>
-  
-</div>
-
-<div class="mt-1">
-  
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-chart"></i>
-      6.3k 字
-    </span>
-  
-
-  
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-clock-fill"></i>
-      
-      
-      53 分钟
-    </span>
-  
-
-  
-  
-</div>
-
-            
-          </div>
-
-          
-        </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
       </div>
     </div>
-  </header>
-
-  <main>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-区块链溯源系统环境部署" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/" class="article-date">
+  <time datetime="2022-03-05T16:54:40.819Z" itemprop="datePublished">2022-03-06</time>
+</a>
     
-      
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      区块链溯源系统环境部署
+    </h1>
+  
 
-<div class="container-fluid nopadding-x">
-  <div class="row nomargin-x">
-    <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-x-md">
-      <div class="container nopadding-x-md" id="board-ctn">
-        <div class="py-5" id="board">
-          <article class="post-content mx-auto">
-            <!-- SEO header -->
-            <h1 style="display: none">区块链溯源系统环境部署</h1>
-            
-            <div class="markdown-body">
-              <p>以下教程是在win10上完成的。</p>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>以下教程是在win10上完成的。</p>
 <h1>软件安装</h1>
 <p>nodejs安装：<a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn/download/">https://nodejs.org/zh-cn/download/</a>   这是用来运行前端的</p>
 <p>win键+r键 ，输入cmd,看一下npm版本，有版本就代表成功了。</p>
@@ -274,15 +125,15 @@
 <p>部署最简单的Hyperleger fabric，首先需要买个服务器:<a target="_blank" rel="noopener" href="https://www.aliyun.com/minisite/goods?userCode=svaj1q3t&amp;share_source=copy_link">https://www.aliyun.com/minisite/goods?userCode=svaj1q3t&amp;share_source=copy_link</a></p>
 <p>有钱买配置好一点，2核4G，没钱买1核2G，当然带宽是越大越好，5M最好，1M也可以用，就是有点慢，Centos和Ubuntu系统都行，我这个教程用的是Centos系统。如果你使用虚拟机也是完全ok的，但是操作可能会有一点点小的事故，比如连不上网，可能需要百度一下自己解决一下。</p>
 <h2 id="开放服务器的端口">开放服务器的端口</h2>
-<img src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image1.png" srcset="/img/loading.gif" lazyload class="">
-<img src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211213152631550.png" srcset="/img/loading.gif" lazyload class="">
-<img src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211213152650088.png" srcset="/img/loading.gif" lazyload class="">
-<img src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211213152706298.png" srcset="/img/loading.gif" lazyload class="">
+<img src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image1.png" class="">
+<img src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211213152631550.png" class="">
+<img src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211213152650088.png" class="">
+<img src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211213152706298.png" class="">
 <h2 id="使用finalShell连接服务器">使用finalShell连接服务器</h2>
-<img src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211214141123682.png" srcset="/img/loading.gif" lazyload class="">
-<img src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211214141744104.png" srcset="/img/loading.gif" lazyload class="">
-<img src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211214141920066.png" srcset="/img/loading.gif" lazyload class="">
-<img src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211214142651435.png" srcset="/img/loading.gif" lazyload class="">
+<img src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211214141123682.png" class="">
+<img src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211214141744104.png" class="">
+<img src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211214141920066.png" class="">
+<img src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211214142651435.png" class="">
 <h2 id="Fabric-v1-4-0安装部署-全程复制粘贴就ok">Fabric v1.4.0安装部署  全程复制粘贴就ok</h2>
 <h3 id="一、前期准备">一、前期准备</h3>
 <table>
@@ -351,7 +202,7 @@
 <li>
 <p>安装Fabric Binaries和Fabric相关的Docker镜像</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> <span class="hljs-variable">$GOPATH</span>/src/github.com/hyperledger/fabric-samples/scripts<br>vim bootstrap.sh <br><br><span class="hljs-comment">#用#注释掉binaryDownload()函数</span><br></code></pre></td></tr></table></figure>
-<img src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211214151145232.png" srcset="/img/loading.gif" lazyload class="">
+<img src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211214151145232.png" class="">
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stata">安装Fabric、Fabric-<span class="hljs-keyword">ca</span>以及第三方Docker镜像（./<span class="hljs-keyword">bootstrap</span>.<span class="hljs-keyword">sh</span> &lt;fabric&gt; &lt;fabric-<span class="hljs-keyword">ca</span>&gt; &lt;thirdparty&gt;）<br>./<span class="hljs-keyword">bootstrap</span>.<span class="hljs-keyword">sh</span> 1.4.0 1.4.0 0.4.14<br></code></pre></td></tr></table></figure>
 <p>值得注意的是，如果由于网络问题，此处通过<code>bootstrap.sh</code>脚本安装可能会出错，此时可进行手动安装。安装步骤如下：</p>
 <ul>
@@ -373,18 +224,18 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> <span class="hljs-variable">$GOPATH</span>/src/github.com/hyperledger/fabric-samples/first-network<br><span class="hljs-comment"># 编译通过Golang开发的chaincode并启动相关的容器</span><br>启动（过程比较长，可能需要几分钟）<br>./byfn.sh up   <br><br><br><span class="hljs-comment">#停止first-network网络中所有的容器，删除crypto材料和4个artifacts（genesis.block、mychannel.block、Org1MSPanchor.tx、Org2MSPanchor.tx）以及chaincode镜像</span><br>./byfn.sh down   <span class="hljs-comment">#请不要随便使用该命令</span><br></code></pre></td></tr></table></figure>
 </li>
 </ol>
-<img src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211215145958700.png" srcset="/img/loading.gif" lazyload class=""> 
+<img src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211215145958700.png" class=""> 
 <p>到这里就算运行成功。</p>
 <h1>项目运行</h1>
 <p>sdkdemo是fabric sdk,运行sdkdemo就可以了。</p>
-<img src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211215153244642.png" srcset="/img/loading.gif" lazyload class=""> 
+<img src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211215153244642.png" class=""> 
 <h2 id="运行后端项目">运行后端项目</h2>
-<img src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211215153505822.png" srcset="/img/loading.gif" lazyload class="">
+<img src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211215153505822.png" class="">
 <h2 id="运行前端项目">运行前端项目</h2>
 <p>在目录oldlot中输入cmd回车</p>
-<img src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211215153559581.png" srcset="/img/loading.gif" lazyload class="">
+<img src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211215153559581.png" class="">
 <p>输入npm run dev 回车</p>
-<img src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211215153705078.png" srcset="/img/loading.gif" lazyload class=""> 
+<img src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211215153705078.png" class=""> 
 <p>注意：如果发现没有node_modules目录，需要先执行一下npm install</p>
 <h2 id="运行区块链sdk">运行区块链sdk</h2>
 <h3 id="准备工作">准备工作</h3>
@@ -396,219 +247,150 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash">更改世界状态数据库是couchdb启动</span><br><span class="hljs-meta">#</span><span class="bash">访问方式：ip:5984/_utils</span><br>cd /home/ubuntu/gopath/src/github.com/hyperledger/fabric-samples/first-network<br>./byfn.sh up -s couchdb<br><span class="hljs-meta">#</span><span class="bash">启动2个org，4个peer，1个cli，4个couchdb,1个kafka</span><br>docker-compose -f docker-compose-cli.yaml -f docker-compose-couch.yaml -f docker-compose-kafka.yaml start<br></code></pre></td></tr></table></figure>
 <h6 id="生成tx文件">生成tx文件</h6>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">cd /home/ubuntu/gopath/src/github.com/hyperledger/fabric-samples/first-network<br>../bin/configtxgen -profile TwoOrgsChannel -outputCreateChannelTx channel-artifacts/test.tx -channelID test<br></code></pre></td></tr></table></figure>
-<img src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211215171522972.png" srcset="/img/loading.gif" lazyload class="">
+<img src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211215171522972.png" class="">
 <blockquote>
 <p>将<code>/opt/gopath/src/github.com/hyperledger/fabric/scripts/fabric-samples/first-network</code>目录下的<code>crypto-config</code>文件拷贝到工程的<code>resources</code>目录下<br>
 注意：其中在<code>1.4.6</code>版本<code>peerOrganization-org1(2)-users-Admin-msp-admincerts</code>目录下的文件没有，但是可以拷贝同个目录下的<code>signcerts</code>的文件</p>
 </blockquote>
 <p>将生成的<code>test.tx</code>文件拷贝到<code>idea</code>工程的<code>resources</code>目录下</p>
-<img src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211215171631083.png" srcset="/img/loading.gif" lazyload class="">
-<img src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211215171838437.png" srcset="/img/loading.gif" lazyload class="">
-<img src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211215171950996.png" srcset="/img/loading.gif" lazyload class="">
-<img src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211215171914106.png" srcset="/img/loading.gif" lazyload class="">
+<img src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211215171631083.png" class="">
+<img src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211215171838437.png" class="">
+<img src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211215171950996.png" class="">
+<img src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211215171914106.png" class="">
 <p>IDEA乱码配置，之前的项目这样配置的，你可以按照这样配置下，不然可能乱码</p>
-<img src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211215162603128.png" srcset="/img/loading.gif" lazyload class="">　
+<img src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211215162603128.png" class="">　
 <p>idea打开sdkdemo</p>
 <p><strong>注意:java 的jdk一定要是64位</strong></p>
 <p>路径是双斜杠\\</p>
-<img src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211215162915220.png" srcset="/img/loading.gif" lazyload class="">
-<img src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211215163124434.png" srcset="/img/loading.gif" lazyload class=""> 
-<img src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211215164437760.png" srcset="/img/loading.gif" lazyload class="">
+<img src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211215162915220.png" class="">
+<img src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211215163124434.png" class=""> 
+<img src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211215164437760.png" class="">
 <p>运行sdkdemo项目</p>
 <p>在浏览器中调用sdkdemo</p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs cmd">#在浏览器中依次访问下面的网址，不要重复执行<br>#创建通道<br><span class="hljs-function">http://<span class="hljs-title">localhost</span>:8081/<span class="hljs-title">sdk</span>/<span class="hljs-title">createChannel</span></span><br><span class="hljs-function"><span class="hljs-title">http</span>://<span class="hljs-title">localhost</span>:8081/<span class="hljs-title">sdk</span>/<span class="hljs-title">createChannel2</span></span><br><span class="hljs-function">#安装智能合约</span><br><span class="hljs-function"><span class="hljs-title">http</span>://<span class="hljs-title">localhost</span>:8081/<span class="hljs-title">sdk</span>/<span class="hljs-title">chainCodeInstall</span></span><br><span class="hljs-function"><span class="hljs-title">http</span>://<span class="hljs-title">localhost</span>:8081/<span class="hljs-title">sdk</span>/<span class="hljs-title">chainCodeInstall2</span></span><br><span class="hljs-function">#实例化智能合约,比较慢</span><br><span class="hljs-function"><span class="hljs-title">http</span>://<span class="hljs-title">localhost</span>:8081/<span class="hljs-title">sdk</span>/<span class="hljs-title">init</span></span><br></code></pre></td></tr></table></figure>
 <p>三种用户，可以去表里面找对应的账户和密码</p>
-<img src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211215175716453.png" srcset="/img/loading.gif" lazyload class=""> 
+<img src="/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/image-20211215175716453.png" class=""> 
 
-            </div>
-            <hr>
-            <div>
-              <div class="post-metas mb-3">
-                
-                
-              </div>
-              
-                <p class="note note-warning">
-                  
-                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
-                  
-                </p>
-              
-              
-                <div class="post-prevnext">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/2022/07/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">如何使用goblintownNFT智能合约发布属于自己的NFT</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/2022/03/06/ACM_%E6%95%B0%E8%AE%BA/">
-                        <span class="hidden-mobile">ACM 数论部分</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
-              
-            </div>
-
-            
-          </article>
-        </div>
-      </div>
+      
     </div>
-    
-      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
-  <div class="toc-body" id="toc-body"></div>
-</div>
-
-      </div>
-    
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/03/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%BA%AF%E6%BA%90%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/" data-id="cl5f2i85500047kvefoc16nmu" class="article-share-link">Share</a>
+      
+      
+    </footer>
   </div>
-</div>
-
-<!-- Custom -->
-
-
+  
     
-
-    
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
-
-    
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+<nav id="article-nav">
+  
+    <a href="/2022/07/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8goblintownNFT%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%8F%91%E5%B8%83%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84NFT/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          如何使用goblintownNFT智能合约发布属于自己的NFT
+        
       </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v"
-                 for="local-search-input">关键词</label>
-        </div>
-        <div class="list-group" id="local-search-result"></div>
-      </div>
+    </a>
+  
+  
+    <a href="/2022/03/06/ACM_%E6%95%B0%E8%AE%BA/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ACM 数论部分</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">六月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">五月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">一月 2022</a></li></ul>
     </div>
   </div>
-</div>
-    
 
-    
-  </main>
 
-  <footer class="text-center mt-5 py-3">
-  <div class="footer-content">
-     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/06/02/Rust-Warp%E5%A4%84%E7%90%86HTTP%E8%AF%B7%E6%B1%82/">Rust Warp处理HTTP请求</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/02/HTTP%E8%AF%B7%E6%B1%82%E5%86%85%E5%AE%B9/">HTTP请求内容</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/11/Rust%E5%8D%95%E9%93%BE%E8%A1%A8/">Rust单链表</a>
+          </li>
+        
+          <li>
+            <a href="/2022/07/10/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9CRinkeby%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">以太坊测试网络Rinkeby使用教程</a>
+          </li>
+        
+          <li>
+            <a href="/2022/07/08/%E5%A6%82%E4%BD%95%E5%9C%A8Linux%E4%B8%8A%E9%83%A8%E7%BD%B2IPFS/">如何在Linux云服务器上部署IPFS</a>
+          </li>
+        
+      </ul>
+    </div>
   </div>
-  
 
   
-
+</aside>
+        
+      </div>
+      <footer id="footer">
   
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2024 Zexin Wang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
 </footer>
-
-
-  <!-- SCRIPTS -->
+    </div>
+    <nav id="mobile-nav">
   
-  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+</nav>
+    
 
-  <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
-  </script>
-
-
-<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
-<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
-
-<!-- Plugins -->
-
-
-  <script  src="/js/local-search.js" ></script>
-
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
-  
-
-
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
 
   
-
-
-
-  
-    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
-  
-  
-    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
-  
-  
-    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
-  
-  
-    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
-  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
 
 
-
-
-  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var title = document.getElementById('subtitle').title;
-      
-        typing(title);
-      
-    })(window, document);
-  </script>
+<script src="/js/script.js"></script>
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-<!-- 主题的启动项 保持在最底部 -->
-<script  src="/js/boot.js" ></script>
-
-
+  </div>
 </body>
 </html>
