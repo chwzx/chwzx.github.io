@@ -99,18 +99,18 @@
         <h3 id="一、准备必须的环境">一、准备必须的环境</h3>
 <h4 id="配置GoLang环境">配置GoLang环境</h4>
 <p>下载GoLang二进制文件</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">cd</span> /home<br>// 建议自己去GitHub上找一下最新版的链接<br>wget https://go.dev/dl/go1.18.3.linux-amd64.tar.gz<br>tar -zxvf go1.18.3.linux-amd64.tar.gz -C /usr/<span class="hljs-built_in">local</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /home</span><br><span class="line">// 建议自己去GitHub上找一下最新版的链接</span><br><span class="line">wget https://go.dev/dl/go1.18.3.linux-amd64.tar.gz</span><br><span class="line">tar -zxvf go1.18.3.linux-amd64.tar.gz -C /usr/<span class="built_in">local</span></span><br></pre></td></tr></table></figure>
 <p>配置GoLang环境</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs sh">vim /etc/profile<br><br><span class="hljs-comment">#文件末尾追加（类似于配置java环境）</span><br><span class="hljs-comment"># golang env</span><br><span class="hljs-built_in">export</span> GOROOT=/usr/<span class="hljs-built_in">local</span>/go<br><span class="hljs-built_in">export</span> GOPATH=/data/gopath<br><span class="hljs-built_in">export</span> PATH=<span class="hljs-variable">$PATH</span>:<span class="hljs-variable">$GOROOT</span>/bin:<span class="hljs-variable">$GOPATH</span>/bin<br><br><span class="hljs-built_in">source</span> /etc/profile<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br><span class="line"></span><br><span class="line"><span class="comment">#文件末尾追加（类似于配置java环境）</span></span><br><span class="line"><span class="comment"># golang env</span></span><br><span class="line"><span class="built_in">export</span> GOROOT=/usr/<span class="built_in">local</span>/go</span><br><span class="line"><span class="built_in">export</span> GOPATH=/data/gopath</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$GOROOT</span>/bin:<span class="variable">$GOPATH</span>/bin</span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> /etc/profile</span><br></pre></td></tr></table></figure>
 <h3 id="二、IPFS部署">二、IPFS部署</h3>
 <p>下载go-ipfs二进制文件，解压后运行install.sh脚本。（因为服务器在国外，所以可能wget失败go-ipfs二进制文件，建议直接去GitHub下载后上传到服务器，GoLang二进制文件同理）</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sh">wget https://dist.ipfs.io/go-ipfs/v0.13.0/go-ipfs_v0.13.0_linux-amd64.tar.gz<br>tar -xvzf go-ipfs_v0.13.0_linux-amd64.tar.gz<br><span class="hljs-built_in">cd</span> go-ipfs<br>sudo bash install.sh<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget https://dist.ipfs.io/go-ipfs/v0.13.0/go-ipfs_v0.13.0_linux-amd64.tar.gz</span><br><span class="line">tar -xvzf go-ipfs_v0.13.0_linux-amd64.tar.gz</span><br><span class="line"><span class="built_in">cd</span> go-ipfs</span><br><span class="line">sudo bash install.sh</span><br></pre></td></tr></table></figure>
 <p>测试是否安装成功：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">ipfs --version<br><span class="hljs-comment"># 成功的话会显示ipfs版本号</span><br>&gt; ipfs version 0.13.0<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ipfs --version</span><br><span class="line"><span class="comment"># 成功的话会显示ipfs版本号</span></span><br><span class="line">&gt; ipfs version 0.13.0</span><br></pre></td></tr></table></figure>
 <p>如果需要指定ipfs的存储位置，则修改下面bash</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">export</span> IPFS_PATH=<span class="hljs-string">&quot;/root/.ipfs/&quot;</span>   <span class="hljs-comment">#这里的路径是样例，可以修改为自己的路径 </span><br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> IPFS_PATH=<span class="string">&quot;/root/.ipfs/&quot;</span>   <span class="comment">#这里的路径是样例，可以修改为自己的路径 </span></span><br></pre></td></tr></table></figure>
 <p>IPFS初始化</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">ipfs init<br>ipfs cat /ipfs/QmQPeNsJPyVWPFDVHb77w8G42Fvo15z4bG2X8D2GhfbSXc/readme  <span class="hljs-comment">#根据init而来</span><br>ipfs id<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ipfs init</span><br><span class="line">ipfs cat /ipfs/QmQPeNsJPyVWPFDVHb77w8G42Fvo15z4bG2X8D2GhfbSXc/readme  <span class="comment">#根据init而来</span></span><br><span class="line">ipfs id</span><br></pre></td></tr></table></figure>
 <img src="/2022/07/08/%E5%A6%82%E4%BD%95%E5%9C%A8Linux%E4%B8%8A%E9%83%A8%E7%BD%B2IPFS/ipfs_init.png" class="">
 <img src="/2022/07/08/%E5%A6%82%E4%BD%95%E5%9C%A8Linux%E4%B8%8A%E9%83%A8%E7%BD%B2IPFS/ipfs_id.png" class="">
 <p>ipfs文件夹存放在/root/下面（通过ipfs init可得），路径可根据当前ubuntu 用户而定，此处我用的root权限。文件如下：</p>
@@ -124,10 +124,10 @@
 </ul>
 <h3 id="三、修改配置文件config">三、修改配置文件config</h3>
 <p>把配置文件中的Address下的API 和 Gatway 的IP地址改为自己的本地地址，如果是部署在虚拟机中想通过本机访问的话全改为0.0.0.0。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">vi config<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi config</span><br></pre></td></tr></table></figure>
 <img src="/2022/07/08/%E5%A6%82%E4%BD%95%E5%9C%A8Linux%E4%B8%8A%E9%83%A8%E7%BD%B2IPFS/ipfs_viconfig.png" class="">
 <h3 id="四、开启节点">四、开启节点</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ipfs daemon<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ipfs daemon</span><br></pre></td></tr></table></figure>
 <img src="/2022/07/08/%E5%A6%82%E4%BD%95%E5%9C%A8Linux%E4%B8%8A%E9%83%A8%E7%BD%B2IPFS/ipfs_daemon.png" class="">
 <p>在浏览器中输入图中的WebUI:<a target="_blank" rel="noopener" href="http://xn--IP-fr5c86lx7z:5001/webui,%E5%B0%B1%E4%BC%9A%E5%BC%B9%E5%87%BA%EF%BC%9A">http://服务器IP:5001/webui,就会弹出：</a></p>
 <img src="/2022/07/08/%E5%A6%82%E4%BD%95%E5%9C%A8Linux%E4%B8%8A%E9%83%A8%E7%BD%B2IPFS/ipfs_success.png" class="">
@@ -139,7 +139,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/07/08/%E5%A6%82%E4%BD%95%E5%9C%A8Linux%E4%B8%8A%E9%83%A8%E7%BD%B2IPFS/" data-id="cl5f2i85600067kve3o9d7xft" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/07/08/%E5%A6%82%E4%BD%95%E5%9C%A8Linux%E4%B8%8A%E9%83%A8%E7%BD%B2IPFS/" data-id="cm1gj9h0b0009m0ve1dt47m9i" class="article-share-link">Share</a>
       
       
     </footer>
